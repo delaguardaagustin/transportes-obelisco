@@ -10,121 +10,204 @@
 <meta property="og:image" content="assets/og.jpg">
 <link rel="icon" href="assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --marino:#14213d;--marino2:#0d1730;--naranja:#f58220;--naranja2:#d96a0b;--sol:#ffc226;
-  --bg:#f7f5f0;--surface:#ffffff;--text:#151b2b;--muted:#5b6475;--line:#dfdcd3;--accent:#d96a0b;
+  --marino:#101a33;--marino2:#0a1124;--marino3:#1a2850;--naranja:#ff7a12;--naranja2:#e56200;--sol:#ffc226;
+  --bg:#f6f3ec;--surface:#ffffff;--text:#131a2c;--muted:#58627a;--line:#ddd8cc;--accent:#e56200;
   --font:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;--display:"Barlow Condensed","Arial Narrow",Impact,sans-serif;
-  --asis-tone:#14213d;
+  --asis-tone:#101a33;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--text);font:400 1.05rem/1.6 var(--font);overflow-x:clip}
 img,video{display:block;max-width:100%}
 a{color:inherit}
-.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
-h1,h2,h3{font-family:var(--display);font-weight:800;line-height:1;margin:0;text-transform:uppercase;letter-spacing:.01em;text-wrap:balance}
-:focus-visible{outline:3px solid var(--naranja);outline-offset:3px}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.95;margin:0;text-transform:uppercase;text-wrap:balance}
+:focus-visible{outline:3px solid var(--sol);outline-offset:3px}
 
-header{position:sticky;top:0;z-index:40;background:var(--marino);color:#fff;border-bottom:3px solid var(--naranja)}
+/* ---------- barra ---------- */
+header{position:sticky;top:0;z-index:40;background:rgba(16,26,51,.96);backdrop-filter:blur(8px);color:#fff}
 .barra{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:68px}
 .marca{display:flex;align-items:center;gap:10px;text-decoration:none}
 .marca img{height:44px;width:auto}
-.marca span{font-family:var(--display);font-weight:800;font-size:1.5rem;line-height:.95;text-transform:uppercase}
-.marca small{display:block;font:italic 500 .72rem/1 Georgia,serif;letter-spacing:.14em;text-transform:uppercase;color:var(--sol)}
-nav{display:flex;gap:22px;align-items:center}
-nav a{text-decoration:none;font-weight:600;font-size:.95rem;color:#dfe5f2}
-nav a:hover{color:#fff}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:8px;background:var(--naranja);color:#1a1205;text-decoration:none;font-weight:700;border:0;cursor:pointer;font-family:var(--font);font-size:1rem;transition:filter .15s,transform .1s}
-.btn:hover{filter:brightness(1.08)}.btn:active{transform:scale(.98)}
-.btn svg{width:21px;height:21px;fill:currentColor;flex:none}
-.btn-wa{background:#25d366;color:#052e16}
-.btn-linea{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
-header .btn{min-height:44px;padding:0 18px}
+.marca span{font-family:var(--display);font-weight:900;font-size:1.55rem;line-height:.95;text-transform:uppercase}
+.marca small{display:block;font:italic 500 .7rem/1 Georgia,serif;letter-spacing:.16em;text-transform:uppercase;color:var(--sol)}
+nav{display:flex;gap:24px;align-items:center}
+nav a{text-decoration:none;font-weight:600;font-size:.95rem;color:#d9e0f0;position:relative}
+nav a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--naranja);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+nav a:not(.btn):hover::after{transform:scaleX(1)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:10px;background:var(--naranja);color:#190d00;text-decoration:none;font-weight:700;border:0;cursor:pointer;font-family:var(--font);font-size:1.02rem;transition:transform .15s,box-shadow .15s,filter .15s;box-shadow:0 6px 0 var(--naranja2)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 0 var(--naranja2)}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 var(--naranja2)}
+.btn svg{width:22px;height:22px;fill:currentColor;flex:none}
+.btn-wa{background:#25d366;color:#04240f;box-shadow:0 6px 0 #17a34d}
+.btn-wa:hover{box-shadow:0 8px 0 #17a34d}.btn-wa:active{box-shadow:0 2px 0 #17a34d}
+.btn-linea{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);box-shadow:none}
+.btn-linea:hover{box-shadow:none;border-color:#fff;background:rgba(255,255,255,.08)}
+header .btn{min-height:44px;padding:0 18px;box-shadow:0 4px 0 #17a34d}
 
-.hero{background:var(--marino);color:#fff;position:relative;overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:0;align-items:stretch;min-height:min(78svh,640px)}
-.hero-txt{display:flex;flex-direction:column;justify-content:center;gap:20px;padding:56px 40px 56px 0}
-.hero h1{font-size:clamp(3rem,7.2vw,5.4rem)}
-.hero h1 em{font-style:normal;color:var(--naranja)}
-.hero .lema{font-size:1.2rem;color:#dfe5f2;max-width:34ch;margin:0}
-.sellos{display:flex;flex-wrap:wrap;gap:8px 10px;margin:0;padding:0;list-style:none}
-.sellos li{font-weight:600;font-size:.9rem;padding:6px 12px;border:1px solid rgba(255,255,255,.3);border-radius:999px;color:#fff}
-.cta{display:flex;flex-wrap:wrap;gap:12px}
-.hero figure{margin:0;position:relative;min-height:320px}
-.hero figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 78%}
-.hero figure::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--marino) 0,rgba(20,33,61,0) 22%)}
+/* ---------- portada ---------- */
+.hero{background:radial-gradient(1100px 600px at 85% 10%,#22346b 0,transparent 60%),linear-gradient(160deg,var(--marino) 0,var(--marino2) 100%);color:#fff;position:relative;overflow:hidden;padding:0}
+.hero::before{content:"";position:absolute;left:-10%;right:-10%;bottom:-120px;height:260px;background:var(--naranja);transform:rotate(-3deg);opacity:.95}
+.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.07) 1px,transparent 1px);background-size:22px 22px;mask-image:linear-gradient(180deg,#000 0,transparent 70%);pointer-events:none}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:64px 0 110px}
+.chapa{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sol);margin:0 0 18px}
+.chapa i{width:10px;height:10px;border-radius:50%;background:#2ee57a;box-shadow:0 0 0 0 rgba(46,229,122,.7);animation:pulso 1.8s infinite}
+@keyframes pulso{70%{box-shadow:0 0 0 12px rgba(46,229,122,0)}100%{box-shadow:0 0 0 0 rgba(46,229,122,0)}}
+.hero h1{font-size:clamp(3.6rem,9.2vw,7.4rem);letter-spacing:-.01em}
+.hero h1 span{display:block}
+.hero h1 .n{color:var(--naranja);font-style:italic}
+.hero h1 .y{font-size:.42em;color:#c8d2ea;letter-spacing:.04em;margin:.12em 0}
+.lema{font-size:1.25rem;color:#dfe5f4;max-width:36ch;margin:22px 0 26px}
+.lema b{color:#fff}
+.cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.sellos{display:flex;flex-wrap:wrap;gap:22px;margin:34px 0 0;padding:0;list-style:none}
+.sellos li{display:flex;align-items:center;gap:10px;font-weight:600;font-size:.98rem;color:#eef2fb}
+.sellos svg,.ico{width:26px;height:26px;stroke:var(--sol);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.celular{position:relative;justify-self:center;width:min(320px,78vw);transform:rotate(3deg);border-radius:30px;border:6px solid #fff;background:#000;box-shadow:16px 16px 0 var(--naranja),0 40px 70px -24px rgba(0,0,0,.7);overflow:hidden;margin:0}
+.celular video{width:100%;aspect-ratio:9/16;object-fit:cover}
+.celular figcaption{position:absolute;left:12px;bottom:12px;background:rgba(10,17,36,.85);color:#fff;font-weight:700;font-size:.8rem;padding:6px 11px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
 
-section{padding:76px 0}
-.cab{max-width:48ch;margin-bottom:34px}
-.cab .ojo{font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;font-size:.85rem;margin:0 0 8px}
-h2{font-size:clamp(2.2rem,5vw,3.4rem);color:var(--marino)}
-.cab p{color:var(--muted);margin:12px 0 0}
+/* ---------- cinta ---------- */
+.cinta{background:var(--naranja);color:#190d00;overflow:hidden;border-top:4px solid var(--marino2);border-bottom:4px solid var(--marino2);position:relative;z-index:3}
+.cinta div{display:flex;gap:0;width:max-content;animation:rueda 26s linear infinite}
+.cinta span{font-family:var(--display);font-weight:900;font-style:italic;font-size:1.7rem;text-transform:uppercase;padding:10px 26px;white-space:nowrap}
+.cinta span::after{content:"✦";margin-left:52px;font-style:normal}
+@keyframes rueda{to{transform:translateX(-50%)}}
 
-.servicios{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--marino);border-left:1px solid var(--line)}
-.servicios article{padding:26px 24px 28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--surface)}
-.servicios h3{font-size:1.65rem;color:var(--marino);margin-bottom:8px}
-.servicios p{margin:0;color:var(--muted);font-size:.98rem}
-.servicios a{display:inline-block;margin-top:14px;font-weight:700;color:var(--accent);text-decoration:none;border-bottom:2px solid currentColor}
+section{padding:88px 0}
+.cab{max-width:52ch;margin-bottom:38px}
+.ojo{font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.1em;font-size:.86rem;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+.ojo::before{content:"";width:34px;height:4px;background:var(--naranja);border-radius:2px}
+h2{font-size:clamp(2.6rem,6vw,4.4rem);color:var(--marino)}
+h2 em{font-style:italic;color:var(--naranja2)}
+.cab p{color:var(--muted);margin:14px 0 0;font-size:1.1rem}
 
-.pasos{background:var(--marino);color:#fff}
-.pasos h2{color:#fff}
-.pasos .cab p{color:#c9d2e3}
-.pasos ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:p}
-.pasos li{counter-increment:p;border-top:3px solid var(--naranja);padding-top:16px}
-.pasos li::before{content:counter(p);font-family:var(--display);font-weight:800;font-size:3.4rem;line-height:1;color:var(--naranja);display:block;margin-bottom:6px}
-.pasos h3{font-size:1.5rem;margin-bottom:6px}
-.pasos p{margin:0;color:#c9d2e3}
+/* ---------- servicios con foto ---------- */
+.servicios{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:340px;padding:22px;border-radius:16px;overflow:hidden;color:#fff;text-decoration:none;isolation:isolate;background:var(--marino)}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .5s ease}
+.svc::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,17,36,.05) 20%,rgba(10,17,36,.92) 82%)}
+.svc:hover img{transform:scale(1.07)}
+.svc .num{position:absolute;top:16px;left:18px;font-family:var(--display);font-weight:900;font-style:italic;font-size:1.3rem;background:var(--naranja);color:#190d00;padding:2px 12px;border-radius:6px}
+.svc h3{font-size:2.05rem;margin-bottom:6px}
+.svc p{margin:0 0 14px;color:#dfe5f4;font-size:.98rem}
+.svc .ir{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--sol)}
+.svc .ir::after{content:"→";transition:transform .2s}
+.svc:hover .ir::after{transform:translateX(6px)}
 
-.galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.galeria img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;background:#ddd}
-.galeria img.ancha{grid-column:span 2;aspect-ratio:3/2}
-.videos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
-.videos video{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:8px;background:#0d1730}
+/* ---------- por qué ---------- */
+.porque{background:var(--marino);color:#fff;position:relative;overflow:hidden}
+.porque::before{content:"24H";position:absolute;right:-30px;top:-70px;font-family:var(--display);font-weight:900;font-style:italic;font-size:26rem;line-height:1;color:rgba(255,255,255,.035);pointer-events:none}
+.porque h2{color:#fff}.porque h2 em{color:var(--naranja)}
+.porque .cab p{color:#c5cfe6}
+.razones{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.razon{background:var(--marino3);border-radius:16px;padding:26px 22px;border-bottom:6px solid var(--naranja)}
+.razon svg{width:44px;height:44px;stroke:var(--sol);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px}
+.razon h3{font-size:1.75rem;margin-bottom:8px}
+.razon p{margin:0;color:#c5cfe6;font-size:.98rem}
 
-.cotiza{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.cotiza-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:start}
+/* ---------- pasos con ruta ---------- */
+.pasos ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:26px;position:relative}
+.pasos ol::before{content:"";position:absolute;left:8%;right:8%;top:34px;border-top:4px dashed var(--naranja);opacity:.55}
+.pasos li{text-align:center;padding:0 10px}
+.pasos .bola{width:70px;height:70px;border-radius:50%;background:var(--naranja);color:#190d00;font-family:var(--display);font-weight:900;font-size:2.3rem;display:grid;place-items:center;margin:0 auto 16px;position:relative;box-shadow:0 0 0 8px var(--bg)}
+.pasos h3{font-size:1.8rem;color:var(--marino);margin-bottom:8px}
+.pasos p{margin:0;color:var(--muted)}
+.camion{position:absolute;top:-30px;left:8%;width:54px;height:54px;animation:viaje 7s ease-in-out infinite;z-index:1;pointer-events:none}
+@keyframes viaje{0%{left:8%}45%,55%{left:calc(50% - 27px)}100%{left:calc(92% - 54px)}}
+
+/* ---------- trabajos ---------- */
+.trabajos{background:var(--marino2);color:#fff}
+.trabajos h2{color:#fff}.trabajos h2 em{color:var(--naranja)}
+.trabajos .cab p{color:#c5cfe6}
+.carril{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 20px 26px;margin:0 -20px;scrollbar-width:thin;scrollbar-color:var(--naranja) transparent;-webkit-overflow-scrolling:touch}
+.carril > *{flex:0 0 min(270px,70vw);scroll-snap-align:start;border-radius:16px;overflow:hidden;position:relative;background:#000;margin:0}
+.carril img,.carril video{width:100%;aspect-ratio:9/16;object-fit:cover}
+.carril .vid::after{content:"VIDEO";position:absolute;top:12px;left:12px;background:var(--naranja);color:#190d00;font-weight:800;font-size:.72rem;letter-spacing:.08em;padding:3px 9px;border-radius:5px;pointer-events:none}
+.carril figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 12px;background:linear-gradient(180deg,transparent,rgba(10,17,36,.9));font-weight:600;font-size:.92rem;pointer-events:none}
+.flechas{display:flex;gap:10px;justify-content:flex-end;margin-top:6px}
+.flechas button{width:50px;height:50px;border-radius:50%;border:2px solid rgba(255,255,255,.4);background:transparent;color:#fff;font-size:1.4rem;cursor:pointer}
+.flechas button:hover{background:var(--naranja);border-color:var(--naranja);color:#190d00}
+
+/* ---------- cotizador ---------- */
+.cotiza-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:start}
+.tarjeta{background:var(--surface);border-radius:20px;padding:30px;box-shadow:12px 12px 0 var(--naranja),0 30px 60px -30px rgba(16,26,51,.4);border:2px solid var(--marino)}
+.tarjeta h3{font-size:1.9rem;color:var(--marino);margin-bottom:4px}
+.tarjeta > p{margin:0 0 18px;color:var(--muted);font-size:.95rem}
 form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-label{display:flex;flex-direction:column;gap:5px;font-weight:600;font-size:.9rem}
+label{display:flex;flex-direction:column;gap:5px;font-weight:700;font-size:.86rem;text-transform:uppercase;letter-spacing:.04em;color:var(--marino)}
 label.todo{grid-column:1/-1}
-input,select,textarea{font:inherit;font-size:16px;padding:12px 13px;border:1.5px solid var(--line);border-radius:8px;background:#fff;color:var(--text);min-width:0;width:100%}
+input,select,textarea{font:inherit;font-size:16px;text-transform:none;letter-spacing:0;font-weight:400;padding:13px 14px;border:2px solid var(--line);border-radius:10px;background:#fbfaf7;color:var(--text);min-width:0;width:100%}
 textarea{min-height:92px;resize:vertical}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--naranja)}
-form .btn{grid-column:1/-1}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--naranja);background:#fff}
+.ruta{grid-column:1/-1;display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:end}
+.ruta .flecha{font-family:var(--display);font-weight:900;font-size:2rem;color:var(--naranja);padding-bottom:6px}
+form .btn{grid-column:1/-1;min-height:60px;font-size:1.1rem}
 .aviso{grid-column:1/-1;margin:0;font-size:.9rem;color:var(--muted)}
-.aviso.err{color:#b3261e;font-weight:600}
-.datos{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px}
-.datos li{display:flex;gap:10px;align-items:baseline}
-.datos b{font-family:var(--display);font-size:1.25rem;text-transform:uppercase;color:var(--marino);min-width:92px}
+.aviso:empty{display:none}
+.aviso.err{color:#b3261e;font-weight:700}
+.datos{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:14px}
+.datos li{display:flex;gap:14px;align-items:center;font-size:1.08rem}
+.datos svg{width:46px;height:46px;padding:10px;border-radius:12px;background:var(--marino);stroke:var(--sol);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.datos b{display:block;font-family:var(--display);font-size:1.35rem;text-transform:uppercase;color:var(--marino);line-height:1.05}
 
-footer{background:var(--marino2);color:#c9d2e3;padding:34px 0 110px;font-size:.95rem}
+/* ---------- cierre ---------- */
+.cierre{background:var(--naranja);color:#190d00;text-align:center;padding:70px 0;position:relative;overflow:hidden}
+.cierre::before,.cierre::after{content:"";position:absolute;width:340px;height:340px;border:26px solid rgba(25,13,0,.08);border-radius:50%}
+.cierre::before{left:-120px;top:-120px}.cierre::after{right:-120px;bottom:-140px}
+.cierre h2{color:#190d00;font-size:clamp(2.6rem,7vw,5rem)}
+.cierre a.tel{display:inline-block;margin:14px 0 24px;font-family:var(--display);font-weight:900;font-style:italic;font-size:clamp(2.6rem,9vw,6rem);line-height:1;text-decoration:none;color:var(--marino)}
+.cierre .btn-wa{position:relative;z-index:1}
+
+footer{background:var(--marino2);color:#b9c3db;padding:30px 0 110px;font-size:.95rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center}
 footer a{color:#fff}
-.fab{position:fixed;right:16px;bottom:16px;z-index:60;min-height:54px;border-radius:999px;box-shadow:0 12px 28px -10px rgba(0,0,0,.55);background:var(--naranja);color:#1a1205}
+.fab{position:fixed;right:16px;bottom:16px;z-index:60;min-height:56px;border-radius:999px;box-shadow:0 5px 0 var(--naranja2),0 16px 30px -10px rgba(0,0,0,.55)}
 
-.aparece{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.aparece{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
 .aparece.si{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.aparece{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
-@media (max-width:860px){
+.servicios .aparece:nth-child(2),.razones .aparece:nth-child(2){transition-delay:.08s}
+.servicios .aparece:nth-child(3),.razones .aparece:nth-child(3){transition-delay:.16s}
+.razones .aparece:nth-child(4){transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.aparece{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.cinta div,.camion,.chapa i{animation:none}.camion{left:calc(50% - 27px)}}
+@media (max-width:920px){
   nav a:not(.btn){display:none}
-  .hero-grid{grid-template-columns:1fr;min-height:0}
-  .hero-txt{padding:38px 0 30px}
-  .hero figure{min-height:0;height:52svh;margin:0 -20px}
-  .hero figure::after{background:linear-gradient(180deg,var(--marino) 0,rgba(20,33,61,0) 18%)}
+  .hero-grid{grid-template-columns:1fr;gap:36px;padding:40px 0 120px}
+  .celular{transform:rotate(2deg);width:min(270px,70vw)}
+  .servicios{grid-template-columns:1fr 1fr}
+  .razones{grid-template-columns:1fr 1fr}
+  .cotiza-grid{grid-template-columns:1fr;gap:34px}
+  .porque::before{font-size:14rem;top:-30px}
+  section{padding:64px 0}
+}
+@media (max-width:600px){
   .servicios{grid-template-columns:1fr}
-  .pasos ol{grid-template-columns:1fr;gap:22px}
-  .galeria{grid-template-columns:1fr 1fr}
-  .videos{grid-template-columns:1fr 1fr}
-  .videos video:nth-child(3){display:none}
-  .cotiza-grid{grid-template-columns:1fr;gap:28px}
+  .svc{min-height:260px}
+  .pasos ol{grid-template-columns:1fr;gap:30px}
+  .pasos ol::before,.camion{display:none}
   form{grid-template-columns:1fr}
-  section{padding:56px 0}
+  .ruta{grid-template-columns:1fr}
+  .ruta .flecha{display:none}
+  .tarjeta{padding:22px 18px;box-shadow:8px 8px 0 var(--naranja)}
+  .cinta span{font-size:1.3rem}
+  .sellos{gap:14px 20px}
 }
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2Zm5.5 12.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.6.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.8-1.6-3.9-3.5-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.9-2.1-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-1 .9-1.2 2-1 3.2.4 2 1.6 3.6 3.4 5 2.4 2 4.2 2.4 5.7 2.4.7 0 1.6-.1 2.3-.6.6-.4 1.7-1.1 1.9-2.1.2-.9.2-1.7.1-1.8-.1-.2-.3-.2-.6-.4Z"/></symbol></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="wa" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4c1.4.8 3 1.2 4.8 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2Zm5.5 12.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.6.2-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-1.7-.9-2.8-1.6-3.9-3.5-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.9-2.1-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-1 .9-1.2 2-1 3.2.4 2 1.6 3.6 3.4 5 2.4 2 4.2 2.4 5.7 2.4.7 0 1.6-.1 2.3-.6.6-.4 1.7-1.1 1.9-2.1.2-.9.2-1.7.1-1.8-.1-.2-.3-.2-.6-.4Z"/></symbol>
+<symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-mapa" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5a7 7 0 0 0-14 0C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+<symbol id="i-precio" viewBox="0 0 24 24"><path d="M20.4 13.1 13 20.5a1.6 1.6 0 0 1-2.2 0L3 12.7V4h8.700l8.700 8.700a.300.300 0 0 1 0 .400Z"/><circle cx="7.5" cy="8.5" r="1.3"/></symbol>
+<symbol id="i-rayo" viewBox="0 0 24 24"><path d="M13 3 5 13.5h6L10 21l8-10.500h-6L13 3Z"/></symbol>
+<symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.300 3 7.700 7 9.500 4-1.800 7-5.200 7-9.500V6l-7-3Z"/><path d="m9 12 2.200 2.200 4-4.200"/></symbol>
+<symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></symbol>
+<symbol id="i-camion" viewBox="0 0 64 64"><rect x="4" y="22" width="34" height="22" rx="3" fill="#ff7a12"/><path d="M38 28h12l8 9v7H38z" fill="#101a33"/><path d="M43 31h6l4 5H43z" fill="#bfe0ff"/><circle cx="16" cy="46" r="6" fill="#101a33"/><circle cx="16" cy="46" r="2.5" fill="#fff"/><circle cx="48" cy="46" r="6" fill="#101a33"/><circle cx="48" cy="46" r="2.5" fill="#fff"/></symbol>
+</svg>
 
 <header><div class="wrap barra">
   <a class="marca" href="#"><img src="assets/logo.png" alt="" width="160" height="141"><span><small>Transportes</small>Obelisco</span></a>
@@ -135,86 +218,116 @@ footer a{color:#fff}
 </div></header>
 
 <main>
-<section class="hero" style="padding:0"><div class="wrap hero-grid">
-  <div class="hero-txt">
-    <h1>Fletes y <em>mudanzas</em></h1>
-    <p class="lema">Rápidas, seguras y económicas. Dentro y fuera de Santiago.</p>
-    <ul class="sellos"><li>Atención 24 horas</li><li>Mejor precio asegurado</li><li>Cotización por WhatsApp</li></ul>
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <p class="chapa"><i aria-hidden="true"></i>Atención 24 horas</p>
+    <h1><span>Fletes</span><span class="y">y</span><span class="n">mudanzas</span></h1>
+    <p class="lema"><b>Rápidas, seguras y económicas.</b> Dentro y fuera de Santiago. Dinos qué llevas y te cotizamos por WhatsApp.</p>
     <div class="cta">
       <a class="btn" href="#cotizar">Cotiza tu servicio</a>
-      <a class="btn btn-linea" href="tel:+56923978173">+56 9 2397 8173</a>
+      <a class="btn btn-linea" href="tel:+56923978173"><svg class="ico" style="stroke:currentColor" aria-hidden="true"><use href="#i-tel"/></svg>+56 9 2397 8173</a>
     </div>
+    <ul class="sellos">
+      <li><svg aria-hidden="true"><use href="#i-precio"/></svg>Mejor precio asegurado</li>
+      <li><svg aria-hidden="true"><use href="#i-mapa"/></svg>Dentro y fuera de Santiago</li>
+      <li><svg aria-hidden="true"><use href="#i-reloj"/></svg>24 horas</li>
+    </ul>
   </div>
-  <figure><img src="assets/portada.jpg" alt="Camión de Transportes Obelisco cargado con cajas, con el teléfono +56 9 2397 8173" width="1200" height="1600"></figure>
+  <figure class="celular">
+    <video src="assets/hero.mp4" poster="assets/hero.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Video del equipo de Transportes Obelisco cargando un refrigerador"></video>
+    <figcaption>Trabajo real</figcaption>
+  </figure>
 </div></section>
 
+<div class="cinta" aria-hidden="true"><div>
+  <span>Mudanzas</span><span>Flete express</span><span>Transporte de mobiliario</span><span>Flete local</span><span>Reparto</span><span>Retiro de escombros</span><span>24 horas</span>
+  <span>Mudanzas</span><span>Flete express</span><span>Transporte de mobiliario</span><span>Flete local</span><span>Reparto</span><span>Retiro de escombros</span><span>24 horas</span>
+</div></div>
+
 <section id="servicios"><div class="wrap">
-  <div class="cab aparece"><p class="ojo">Servicios</p><h2>Todo tipo de fletes</h2><p>Cuéntanos qué necesitas mover y te cotizamos por WhatsApp.</p></div>
-  <div class="servicios aparece">
-    <article><h3>Mudanzas</h3><p>Casas, departamentos y oficinas. Cargamos, amarramos y entregamos en el destino.</p><a href="#cotizar" data-servicio="Mudanza">Cotizar mudanza</a></article>
-    <article><h3>Transporte de mobiliario</h3><p>Muebles, camas, sillones, refrigeradores, lavadoras y otros artefactos.</p><a href="#cotizar" data-servicio="Transporte de mobiliario">Cotizar transporte</a></article>
-    <article><h3>Flete express</h3><p>Para cuando lo necesitas hoy. Atendemos las 24 horas.</p><a href="#cotizar" data-servicio="Flete express">Cotizar express</a></article>
-    <article><h3>Flete local</h3><p>Traslados dentro de Santiago, de una comuna a otra.</p><a href="#cotizar" data-servicio="Flete local">Cotizar flete local</a></article>
-    <article><h3>Flete de reparto</h3><p>Reparto de mercadería y cajas para negocios y bodegas.</p><a href="#cotizar" data-servicio="Flete de reparto">Cotizar reparto</a></article>
-    <article><h3>Escombros y cachureos</h3><p>Retiro de escombros, cachureos y cosas que ya no usas.</p><a href="#cotizar" data-servicio="Retiro de escombros y cachureos">Cotizar retiro</a></article>
+  <div class="cab aparece"><p class="ojo">Servicios</p><h2>Todo tipo de <em>fletes</em></h2><p>Elige lo que necesitas y te cotizamos por WhatsApp.</p></div>
+  <div class="servicios">
+    <a class="svc aparece" href="#cotizar" data-servicio="Mudanza"><img src="assets/foto-17.jpg" alt="" loading="lazy"><span class="num">01</span><h3>Mudanzas</h3><p>Casas, departamentos y oficinas. Cargamos, amarramos y entregamos.</p><span class="ir">Cotizar mudanza</span></a>
+    <a class="svc aparece" href="#cotizar" data-servicio="Transporte de mobiliario"><img src="assets/foto-03.jpg" alt="" loading="lazy"><span class="num">02</span><h3>Mobiliario</h3><p>Muebles, camas, sillones, refrigeradores, lavadoras y más.</p><span class="ir">Cotizar transporte</span></a>
+    <a class="svc aparece" href="#cotizar" data-servicio="Flete express"><img src="assets/foto-06.jpg" alt="" loading="lazy"><span class="num">03</span><h3>Flete express</h3><p>Para cuando lo necesitas hoy. Atendemos las 24 horas.</p><span class="ir">Cotizar express</span></a>
+    <a class="svc aparece" href="#cotizar" data-servicio="Flete local"><img src="assets/foto-16.jpg" alt="" loading="lazy"><span class="num">04</span><h3>Flete local</h3><p>Traslados dentro de Santiago, de una comuna a otra.</p><span class="ir">Cotizar flete local</span></a>
+    <a class="svc aparece" href="#cotizar" data-servicio="Flete de reparto"><img src="assets/foto-05.jpg" alt="" loading="lazy"><span class="num">05</span><h3>Reparto</h3><p>Mercadería y cajas para negocios y bodegas.</p><span class="ir">Cotizar reparto</span></a>
+    <a class="svc aparece" href="#cotizar" data-servicio="Retiro de escombros y cachureos"><img src="assets/video-1.jpg" alt="" loading="lazy"><span class="num">06</span><h3>Escombros y cachureos</h3><p>Retiramos escombros y lo que ya no usas.</p><span class="ir">Cotizar retiro</span></a>
+  </div>
+</div></section>
+
+<section class="porque"><div class="wrap">
+  <div class="cab aparece"><p class="ojo" style="color:var(--sol)">Por qué Obelisco</p><h2>Rápido <em>y seguro</em></h2></div>
+  <div class="razones">
+    <div class="razon aparece"><svg aria-hidden="true"><use href="#i-rayo"/></svg><h3>Rápidos</h3><p>Coordinamos todo por WhatsApp, sin vueltas.</p></div>
+    <div class="razon aparece"><svg aria-hidden="true"><use href="#i-escudo"/></svg><h3>Seguros</h3><p>Tu carga viaja amarrada con correas y bien acomodada.</p></div>
+    <div class="razon aparece"><svg aria-hidden="true"><use href="#i-precio"/></svg><h3>Económicos</h3><p>Mejor precio asegurado. Cotizas antes de decidir.</p></div>
+    <div class="razon aparece"><svg aria-hidden="true"><use href="#i-reloj"/></svg><h3>24 horas</h3><p>Escríbenos cuando lo necesites, también de noche.</p></div>
   </div>
 </div></section>
 
 <section class="pasos"><div class="wrap">
-  <div class="cab aparece"><p class="ojo" style="color:var(--sol)">Cómo funciona</p><h2>Agenda tu servicio</h2></div>
+  <div class="cab aparece"><p class="ojo">Cómo funciona</p><h2>Agenda en <em>3 pasos</em></h2></div>
   <ol class="aparece">
-    <li><h3>Nos cuentas</h3><p>Qué llevas, desde dónde, hasta dónde y para cuándo. Por el formulario o por WhatsApp.</p></li>
-    <li><h3>Te cotizamos</h3><p>Te respondemos por WhatsApp con el valor del servicio.</p></li>
-    <li><h3>Lo trasladamos</h3><p>Llegamos a la hora acordada, cargamos y entregamos en el destino.</p></li>
+    <li><svg class="camion" aria-hidden="true"><use href="#i-camion"/></svg><span class="bola">1</span><h3>Nos cuentas</h3><p>Qué llevas, desde dónde, hasta dónde y para cuándo.</p></li>
+    <li><span class="bola">2</span><h3>Te cotizamos</h3><p>Te respondemos por WhatsApp con el valor del servicio.</p></li>
+    <li><span class="bola">3</span><h3>Lo trasladamos</h3><p>Cargamos, amarramos y entregamos en el destino.</p></li>
   </ol>
 </div></section>
 
-<section id="trabajos"><div class="wrap">
-  <div class="cab aparece"><p class="ojo">Trabajos</p><h2>Así trabajamos</h2><p>Fotos y videos de fletes y mudanzas reales.</p></div>
-  <div class="galeria aparece">
-    <img src="assets/foto-05.jpg" alt="Amarrando la carga de cajas en el camión" loading="lazy">
-    <img src="assets/foto-17.jpg" alt="Mudanza con sillón, colchón y muebles" loading="lazy">
-    <img src="assets/foto-13.jpg" alt="Traslado de equipos en cajas de transporte" loading="lazy">
-    <img src="assets/foto-03.jpg" alt="Flete de cama y refrigerador desde un edificio" loading="lazy">
-    <img src="assets/foto-06.jpg" alt="Traslado de electrodomésticos nuevos" loading="lazy">
-    <img src="assets/foto-15.jpg" alt="Flete fuera de Santiago, frente a la costa" loading="lazy">
-    <img src="assets/foto-12.jpg" alt="Dos camiones de Transportes Obelisco" loading="lazy">
-    <img src="assets/foto-16.jpg" alt="Mudanza de departamento" loading="lazy">
+<section class="trabajos" id="trabajos"><div class="wrap">
+  <div class="cab aparece"><p class="ojo" style="color:var(--sol)">Trabajos</p><h2>Así <em>trabajamos</em></h2><p>Fotos y videos de fletes y mudanzas reales. Desliza para ver más.</p></div>
+  <div class="carril aparece" id="carril">
+    <figure class="vid"><video src="assets/video-4.mp4" poster="assets/video-4.jpg" controls muted playsinline preload="none"></video></figure>
+    <figure><img src="assets/foto-09.jpg" alt="Camión cargado con cajas para reparto" loading="lazy"><figcaption>Reparto de mercadería</figcaption></figure>
+    <figure class="vid"><video src="assets/video-5.mp4" poster="assets/video-5.jpg" controls muted playsinline preload="none"></video></figure>
+    <figure><img src="assets/foto-13.jpg" alt="Traslado de equipos en cajas de transporte" loading="lazy"><figcaption>Traslado de equipos</figcaption></figure>
+    <figure class="vid"><video src="assets/video-1.mp4" poster="assets/video-1.jpg" controls muted playsinline preload="none"></video></figure>
+    <figure><img src="assets/foto-15.jpg" alt="Flete fuera de Santiago, frente a la costa" loading="lazy"><figcaption>Fuera de Santiago</figcaption></figure>
+    <figure><img src="assets/foto-12.jpg" alt="Dos camiones de Transportes Obelisco" loading="lazy"><figcaption>Nuestros camiones</figcaption></figure>
+    <figure><img src="assets/foto-17.jpg" alt="Mudanza con sillón, colchón y muebles" loading="lazy"><figcaption>Mudanza de departamento</figcaption></figure>
   </div>
-  <div class="videos aparece">
-    <video src="assets/video-2.mp4" poster="assets/video-2.jpg" controls muted playsinline preload="none" aria-label="Video de Transportes Obelisco en un flete"></video>
-    <video src="assets/video-4.mp4" poster="assets/video-4.jpg" controls muted playsinline preload="none" aria-label="Video cargando el camión"></video>
-    <video src="assets/video-1.mp4" poster="assets/video-1.jpg" controls muted playsinline preload="none" aria-label="Video de retiro de escombros"></video>
-  </div>
+  <div class="flechas"><button type="button" id="cPrev" aria-label="Ver anteriores">←</button><button type="button" id="cNext" aria-label="Ver siguientes">→</button></div>
 </div></section>
 
 <section class="cotiza" id="cotizar"><div class="wrap cotiza-grid">
   <div class="aparece">
-    <p class="ojo" style="font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;font-size:.85rem;margin:0 0 8px">Cotizar</p>
-    <h2>Cotiza tu flete</h2>
-    <p style="color:var(--muted)">Completa los datos y se abre WhatsApp con el mensaje listo para enviar. Te respondemos con el valor.</p>
+    <p class="ojo">Cotizar</p>
+    <h2>Cotiza en <em>1 minuto</em></h2>
+    <p style="color:var(--muted);font-size:1.1rem">Completa los datos y se abre WhatsApp con el mensaje listo. Te respondemos con el valor.</p>
     <ul class="datos">
-      <li><b>WhatsApp</b><a href="https://wa.me/56923978173" target="_blank" rel="noopener">+56 9 2397 8173</a></li>
-      <li><b>Horario</b>Atención 24 horas</li>
-      <li><b>Zona</b>Dentro y fuera de Santiago</li>
+      <li><svg aria-hidden="true"><use href="#i-tel"/></svg><span><b>WhatsApp</b><a href="https://wa.me/56923978173" target="_blank" rel="noopener">+56 9 2397 8173</a></span></li>
+      <li><svg aria-hidden="true"><use href="#i-reloj"/></svg><span><b>Horario</b>Atención 24 horas</span></li>
+      <li><svg aria-hidden="true"><use href="#i-mapa"/></svg><span><b>Zona</b>Dentro y fuera de Santiago</span></li>
     </ul>
   </div>
-  <form id="fCot" class="aparece" novalidate>
-    <label>Servicio
-      <select id="cServicio"><option>Mudanza</option><option>Transporte de mobiliario</option><option>Flete express</option><option>Flete local</option><option>Flete de reparto</option><option>Retiro de escombros y cachureos</option></select></label>
-    <label>¿Para cuándo?
-      <input id="cFecha" type="date"></label>
-    <label>Desde (comuna o dirección)
-      <input id="cDesde" autocomplete="off" placeholder="Ej: Ñuñoa, Irarrázaval 1234"></label>
-    <label>Hasta (comuna o dirección)
-      <input id="cHasta" autocomplete="off" placeholder="Ej: Maipú"></label>
-    <label class="todo">¿Qué hay que llevar?
-      <textarea id="cCarga" placeholder="Ej: cama de 2 plazas, refrigerador, 10 cajas. Piso 4 con ascensor."></textarea></label>
-    <label class="todo">Tu nombre
-      <input id="cNombre" autocomplete="name"></label>
-    <p class="aviso" id="cAviso" role="status">No guardamos tus datos: solo se arma el mensaje de WhatsApp.</p>
-    <button class="btn btn-wa" type="submit"><svg aria-hidden="true"><use href="#wa"/></svg>Enviar cotización por WhatsApp</button>
-  </form>
+  <div class="tarjeta aparece">
+    <h3>¿Qué necesitas mover?</h3>
+    <p>No guardamos tus datos: solo se arma el mensaje de WhatsApp.</p>
+    <form id="fCot" novalidate>
+      <label>Servicio
+        <select id="cServicio"><option>Mudanza</option><option>Transporte de mobiliario</option><option>Flete express</option><option>Flete local</option><option>Flete de reparto</option><option>Retiro de escombros y cachureos</option></select></label>
+      <label>¿Para cuándo?
+        <input id="cFecha" type="date"></label>
+      <div class="ruta">
+        <label>Desde<input id="cDesde" autocomplete="off" placeholder="Comuna o dirección"></label>
+        <span class="flecha" aria-hidden="true">→</span>
+        <label>Hasta<input id="cHasta" autocomplete="off" placeholder="Comuna o dirección"></label>
+      </div>
+      <label class="todo">¿Qué hay que llevar?
+        <textarea id="cCarga" placeholder="Ej: cama de 2 plazas, refrigerador, 10 cajas. Piso 4 con ascensor."></textarea></label>
+      <label class="todo">Tu nombre
+        <input id="cNombre" autocomplete="name"></label>
+      <p class="aviso" id="cAviso" role="status"></p>
+      <button class="btn btn-wa" type="submit"><svg aria-hidden="true"><use href="#wa"/></svg>Enviar cotización por WhatsApp</button>
+    </form>
+  </div>
+</div></section>
+
+<section class="cierre"><div class="wrap aparece">
+  <h2>¿Lo necesitas hoy?</h2>
+  <a class="tel" href="tel:+56923978173">+56 9 2397 8173</a><br>
+  <a class="btn btn-wa" href="https://wa.me/56923978173?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20cotizar%20un%20flete" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Escríbenos por WhatsApp</a>
 </div></section>
 </main>
 
@@ -229,14 +342,20 @@ footer a{color:#fff}
 document.getElementById('y').textContent = new Date().getFullYear();
 (function(){var els=document.querySelectorAll('.aparece');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('si')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('si');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px'});els.forEach(function(e){io.observe(e)})})();
 
-/* "Cotizar <servicio>" deja el servicio elegido en el formulario */
+/* Tocar un servicio lo deja elegido en el cotizador */
 document.querySelectorAll('[data-servicio]').forEach(function(a){
   a.addEventListener('click', function(){ document.getElementById('cServicio').value = a.dataset.servicio; });
 });
-/* Solo un video suena o corre a la vez */
-document.querySelectorAll('video').forEach(function(v){
-  v.addEventListener('play', function(){ document.querySelectorAll('video').forEach(function(o){ if(o!==v) o.pause(); }); });
-});
+/* Carrusel de trabajos */
+(function(){
+  var c = document.getElementById('carril');
+  function mover(d){ c.scrollBy({ left: d * Math.min(c.clientWidth * .8, 600), behavior: 'smooth' }); }
+  document.getElementById('cPrev').addEventListener('click', function(){ mover(-1); });
+  document.getElementById('cNext').addEventListener('click', function(){ mover(1); });
+  c.querySelectorAll('video').forEach(function(v){
+    v.addEventListener('play', function(){ c.querySelectorAll('video').forEach(function(o){ if(o!==v) o.pause(); }); });
+  });
+})();
 /* El formulario arma el mensaje y abre WhatsApp: no se envía nada a ningún servidor */
 document.getElementById('fCot').addEventListener('submit', function(ev){
   ev.preventDefault();
