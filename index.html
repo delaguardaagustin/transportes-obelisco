@@ -9,6 +9,7 @@
 <meta property="og:description" content="Fletes y mudanzas dentro y fuera de Santiago. Cotiza tu servicio por WhatsApp.">
 <meta property="og:image" content="assets/og.jpg">
 <link rel="icon" href="assets/logo.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"Transportes Obelisco","description":"Fletes y mudanzas dentro y fuera de Santiago","telephone":"+56923978173","areaServed":"Santiago, Chile","openingHours":"Mo-Su 00:00-23:59"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -66,7 +67,7 @@ header .btn{min-height:44px;padding:0 18px;box-shadow:0 4px 0 #17a34d}
 .sellos{display:flex;flex-wrap:wrap;gap:22px;margin:34px 0 0;padding:0;list-style:none}
 .sellos li{display:flex;align-items:center;gap:10px;font-weight:600;font-size:.98rem;color:#eef2fb}
 .sellos svg,.ico{width:26px;height:26px;stroke:var(--sol);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
-.celular{position:relative;justify-self:center;width:min(320px,78vw);transform:rotate(3deg);border-radius:30px;border:6px solid #fff;background:#000;box-shadow:16px 16px 0 var(--naranja),0 40px 70px -24px rgba(0,0,0,.7);overflow:hidden;margin:0}
+.celular{position:relative;width:min(320px,78vw);transform:rotate(3deg);border-radius:30px;border:6px solid #fff;background:#000;box-shadow:16px 16px 0 var(--naranja),0 40px 70px -24px rgba(0,0,0,.7);overflow:hidden;margin:0}
 .celular video{width:100%;aspect-ratio:9/16;object-fit:cover}
 .celular figcaption{position:absolute;left:12px;bottom:12px;background:rgba(10,17,36,.85);color:#fff;font-weight:700;font-size:.8rem;padding:6px 11px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
 
@@ -154,6 +155,58 @@ form .btn{grid-column:1/-1;min-height:60px;font-size:1.1rem}
 .datos svg{width:46px;height:46px;padding:10px;border-radius:12px;background:var(--marino);stroke:var(--sol);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .datos b{display:block;font-family:var(--display);font-size:1.35rem;text-transform:uppercase;color:var(--marino);line-height:1.05}
 
+/* ---------- barra de avance ---------- */
+.avance{position:fixed;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--naranja),var(--sol));z-index:70}
+
+/* ---------- insignias sobre el video ---------- */
+.celular-wrap{position:relative;justify-self:center}
+.insignia{position:absolute;z-index:3;background:#fff;color:var(--marino);font-family:var(--display);font-weight:900;font-style:italic;text-transform:uppercase;border-radius:14px;padding:10px 14px;line-height:1;box-shadow:0 14px 30px -10px rgba(0,0,0,.6);animation:flota 4s ease-in-out infinite}
+.insignia small{display:block;font:600 .68rem/1.2 var(--font);font-style:normal;letter-spacing:.06em;color:var(--muted)}
+.insignia.a{left:-46px;top:16%;font-size:2rem;color:var(--naranja2)}
+.insignia.b{right:-40px;bottom:20%;font-size:1.25rem;animation-delay:-2s;background:var(--sol)}
+@keyframes flota{50%{transform:translateY(-10px)}}
+
+/* ---------- qué llevamos ---------- */
+.llevamos{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:70px 0}
+.cosas{display:flex;flex-wrap:wrap;gap:12px;margin:0;padding:0;list-style:none}
+.cosas li{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:1.35rem;text-transform:uppercase;color:var(--marino);border:2px solid var(--marino);border-radius:999px;padding:8px 20px 8px 10px;transition:background .2s,color .2s,transform .2s}
+.cosas li::before{content:"";width:30px;height:30px;border-radius:50%;background:var(--naranja) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23190d00' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/18px no-repeat;flex:none}
+.cosas li:hover{background:var(--marino);color:#fff;transform:translateY(-3px)}
+
+/* ---------- fuera de Santiago ---------- */
+.ruta-larga{position:relative;color:#fff;padding:110px 0;isolation:isolate;overflow:hidden}
+.ruta-larga img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%;z-index:-2}
+.ruta-larga::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(10,17,36,.94) 0,rgba(10,17,36,.72) 48%,rgba(10,17,36,.25) 100%)}
+.ruta-larga h2{color:#fff;font-size:clamp(2.8rem,7vw,5.2rem)}
+.ruta-larga h2 em{color:var(--sol)}
+.ruta-larga p{max-width:44ch;font-size:1.2rem;color:#e3e8f5;margin:16px 0 26px}
+.ruta-larga .tramo{display:inline-flex;align-items:center;gap:14px;font-family:var(--display);font-weight:900;font-size:1.5rem;text-transform:uppercase;margin:0 0 18px;max-width:none}
+.tramo span{background:var(--naranja);color:#190d00;border-radius:8px;padding:2px 14px}
+.tramo i{flex:none;width:70px;border-top:4px dashed var(--sol)}
+
+/* ---------- tamaño de la carga ---------- */
+.chips{grid-column:1/-1;border:0;margin:0;padding:0;min-width:0}
+.chips legend{font-weight:700;font-size:.86rem;text-transform:uppercase;letter-spacing:.04em;color:var(--marino);padding:0;margin-bottom:7px}
+.chips div{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{display:block;font-weight:600;font-size:.92rem;text-transform:none;letter-spacing:0;cursor:pointer;position:relative}
+.chips input{position:absolute;opacity:0;width:1px;height:1px;padding:0;border:0}
+.chips span{display:block;border:2px solid var(--line);border-radius:999px;padding:8px 15px;background:#fbfaf7;color:var(--text);transition:all .15s}
+.chips input:checked + span{background:var(--marino);border-color:var(--marino);color:#fff}
+.chips input:focus-visible + span{outline:3px solid var(--sol);outline-offset:2px}
+
+/* ---------- preguntas ---------- */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:54px;align-items:start}
+.faq details{border-bottom:2px solid var(--line)}
+.faq details:first-child{border-top:2px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 4px;font-family:var(--display);font-weight:800;font-size:1.45rem;text-transform:uppercase;color:var(--marino)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;width:38px;height:38px;border-radius:50%;background:var(--naranja);color:#190d00;display:grid;place-items:center;font-size:1.6rem;line-height:1;transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0;padding:0 4px 22px;color:var(--muted);max-width:60ch}
+
+/* ---------- barra fija del celular ---------- */
+.barra-movil{display:none}
+
 /* ---------- cierre ---------- */
 .cierre{background:var(--naranja);color:#190d00;text-align:center;padding:70px 0;position:relative;overflow:hidden}
 .cierre::before,.cierre::after{content:"";position:absolute;width:340px;height:340px;border:26px solid rgba(25,13,0,.08);border-radius:50%}
@@ -172,9 +225,10 @@ footer a{color:#fff}
 .servicios .aparece:nth-child(2),.razones .aparece:nth-child(2){transition-delay:.08s}
 .servicios .aparece:nth-child(3),.razones .aparece:nth-child(3){transition-delay:.16s}
 .razones .aparece:nth-child(4){transition-delay:.24s}
-@media (prefers-reduced-motion:reduce){.aparece{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.cinta div,.camion,.chapa i{animation:none}.camion{left:calc(50% - 27px)}}
+@media (prefers-reduced-motion:reduce){.aparece{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.cinta div,.camion,.chapa i,.insignia{animation:none}.camion{left:calc(50% - 27px)}}
 @media (max-width:920px){
   nav a:not(.btn){display:none}
+  .faq-grid{grid-template-columns:1fr;gap:26px}
   .hero-grid{grid-template-columns:1fr;gap:36px;padding:40px 0 120px}
   .celular{transform:rotate(2deg);width:min(270px,70vw)}
   .servicios{grid-template-columns:1fr 1fr}
@@ -194,6 +248,20 @@ footer a{color:#fff}
   .tarjeta{padding:22px 18px;box-shadow:8px 8px 0 var(--naranja)}
   .cinta span{font-size:1.3rem}
   .sellos{gap:14px 20px}
+  .insignia.a{left:-14px;font-size:1.5rem}
+  .insignia.b{right:-12px;font-size:1rem}
+  .cosas li{font-size:1.1rem;padding:6px 16px 6px 8px}
+  .ruta-larga{padding:76px 0}
+  .faq summary{font-size:1.2rem}
+  /* en el celular: llamar y WhatsApp siempre a mano; el asistente sube para no taparlos */
+  .barra-movil{display:grid;grid-template-columns:1fr 1.25fr;position:fixed;left:0;right:0;bottom:0;z-index:58;background:var(--marino2);border-top:3px solid var(--naranja);padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));gap:8px}
+  .barra-movil a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:10px;font-weight:700;text-decoration:none;font-size:1rem}
+  .barra-movil .ll{background:#fff;color:var(--marino)}
+  .barra-movil .wa{background:#25d366;color:#04240f}
+  .barra-movil svg{width:20px;height:20px;flex:none}
+  .fab{bottom:calc(78px + env(safe-area-inset-bottom,0px));min-height:50px;padding:0 18px;font-size:.92rem}
+  .asis{bottom:calc(140px + env(safe-area-inset-bottom,0px)) !important;max-height:calc(100dvh - 160px) !important}
+  footer{padding-bottom:150px}
 }
 </style>
 </head>
@@ -209,10 +277,11 @@ footer a{color:#fff}
 <symbol id="i-camion" viewBox="0 0 64 64"><rect x="4" y="22" width="34" height="22" rx="3" fill="#ff7a12"/><path d="M38 28h12l8 9v7H38z" fill="#101a33"/><path d="M43 31h6l4 5H43z" fill="#bfe0ff"/><circle cx="16" cy="46" r="6" fill="#101a33"/><circle cx="16" cy="46" r="2.5" fill="#fff"/><circle cx="48" cy="46" r="6" fill="#101a33"/><circle cx="48" cy="46" r="2.5" fill="#fff"/></symbol>
 </svg>
 
+<div class="avance" id="avance" aria-hidden="true"></div>
 <header><div class="wrap barra">
   <a class="marca" href="#"><img src="assets/logo.png" alt="" width="160" height="141"><span><small>Transportes</small>Obelisco</span></a>
   <nav aria-label="Principal">
-    <a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#cotizar">Cotizar</a>
+    <a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#preguntas">Preguntas</a><a href="#cotizar">Cotizar</a>
     <a class="btn btn-wa" href="https://wa.me/56923978173?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20cotizar%20un%20flete" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>WhatsApp</a>
   </nav>
 </div></header>
@@ -233,10 +302,14 @@ footer a{color:#fff}
       <li><svg aria-hidden="true"><use href="#i-reloj"/></svg>24 horas</li>
     </ul>
   </div>
-  <figure class="celular">
-    <video src="assets/hero.mp4" poster="assets/hero.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Video del equipo de Transportes Obelisco cargando un refrigerador"></video>
-    <figcaption>Trabajo real</figcaption>
-  </figure>
+  <div class="celular-wrap">
+    <span class="insignia a" aria-hidden="true">24H<small>todos los días</small></span>
+    <span class="insignia b" aria-hidden="true">Mejor precio<small>asegurado</small></span>
+    <figure class="celular">
+      <video src="assets/hero.mp4" poster="assets/hero.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Video del equipo de Transportes Obelisco cargando un refrigerador"></video>
+      <figcaption>Trabajo real</figcaption>
+    </figure>
+  </div>
 </div></section>
 
 <div class="cinta" aria-hidden="true"><div>
@@ -254,6 +327,13 @@ footer a{color:#fff}
     <a class="svc aparece" href="#cotizar" data-servicio="Flete de reparto"><img src="assets/foto-05.jpg" alt="" loading="lazy"><span class="num">05</span><h3>Reparto</h3><p>Mercadería y cajas para negocios y bodegas.</p><span class="ir">Cotizar reparto</span></a>
     <a class="svc aparece" href="#cotizar" data-servicio="Retiro de escombros y cachureos"><img src="assets/video-1.jpg" alt="" loading="lazy"><span class="num">06</span><h3>Escombros y cachureos</h3><p>Retiramos escombros y lo que ya no usas.</p><span class="ir">Cotizar retiro</span></a>
   </div>
+</div></section>
+
+<section class="llevamos"><div class="wrap">
+  <div class="cab aparece"><p class="ojo">Qué llevamos</p><h2>Si cabe en el camión, <em>lo llevamos</em></h2></div>
+  <ul class="cosas aparece">
+    <li>Refrigeradores</li><li>Lavadoras</li><li>Camas y colchones</li><li>Sillones</li><li>Muebles</li><li>Cajas</li><li>Electrodomésticos</li><li>Máquinas de ejercicio</li><li>Equipos de sonido</li><li>Mercadería</li><li>Escombros</li>
+  </ul>
 </div></section>
 
 <section class="porque"><div class="wrap">
@@ -274,6 +354,16 @@ footer a{color:#fff}
     <li><span class="bola">3</span><h3>Lo trasladamos</h3><p>Cargamos, amarramos y entregamos en el destino.</p></li>
   </ol>
 </div></section>
+
+<section class="ruta-larga">
+  <img src="assets/costa.jpg" alt="Camión de Transportes Obelisco cargado frente a la costa" loading="lazy">
+  <div class="wrap aparece">
+    <p class="tramo"><span>Santiago</span><i aria-hidden="true"></i><span>Regiones</span></p>
+    <h2>También <em>fuera</em> de Santiago</h2>
+    <p>Hacemos fletes y mudanzas a otras ciudades. Dinos el origen y el destino, y te cotizamos el viaje completo.</p>
+    <a class="btn" href="#cotizar" data-servicio="Mudanza">Cotizar un viaje</a>
+  </div>
+</section>
 
 <section class="trabajos" id="trabajos"><div class="wrap">
   <div class="cab aparece"><p class="ojo" style="color:var(--sol)">Trabajos</p><h2>Así <em>trabajamos</em></h2><p>Fotos y videos de fletes y mudanzas reales. Desliza para ver más.</p></div>
@@ -314,6 +404,13 @@ footer a{color:#fff}
         <span class="flecha" aria-hidden="true">→</span>
         <label>Hasta<input id="cHasta" autocomplete="off" placeholder="Comuna o dirección"></label>
       </div>
+      <fieldset class="chips"><legend>¿Cuánto es?</legend><div>
+        <label><input type="radio" name="tam" value="Pocas cosas"><span>Pocas cosas</span></label>
+        <label><input type="radio" name="tam" value="Una pieza o ambiente"><span>Una pieza</span></label>
+        <label><input type="radio" name="tam" value="Departamento completo"><span>Depto completo</span></label>
+        <label><input type="radio" name="tam" value="Casa completa"><span>Casa completa</span></label>
+        <label><input type="radio" name="tam" value="Carga para negocio"><span>Para negocio</span></label>
+      </div></fieldset>
       <label class="todo">¿Qué hay que llevar?
         <textarea id="cCarga" placeholder="Ej: cama de 2 plazas, refrigerador, 10 cajas. Piso 4 con ascensor."></textarea></label>
       <label class="todo">Tu nombre
@@ -321,6 +418,19 @@ footer a{color:#fff}
       <p class="aviso" id="cAviso" role="status"></p>
       <button class="btn btn-wa" type="submit"><svg aria-hidden="true"><use href="#wa"/></svg>Enviar cotización por WhatsApp</button>
     </form>
+  </div>
+</div></section>
+
+<section class="faq" id="preguntas"><div class="wrap faq-grid">
+  <div class="aparece"><p class="ojo">Preguntas</p><h2>Lo que más nos <em>preguntan</em></h2>
+    <p style="color:var(--muted);font-size:1.1rem;margin-top:14px">¿Otra duda? Pregúntale al asistente o escríbenos por WhatsApp.</p></div>
+  <div class="aparece">
+    <details open><summary>¿Cómo cotizo mi flete?</summary><p>Completa el cotizador de esta página o escríbenos por WhatsApp. Cuéntanos qué llevas, desde dónde, hasta dónde y para cuándo, y te respondemos con el valor.</p></details>
+    <details><summary>¿De qué depende el precio?</summary><p>De la cantidad de carga, la distancia y si hay escaleras o ascensor. Por eso cotizamos cada servicio por separado.</p></details>
+    <details><summary>¿Atienden de noche o fines de semana?</summary><p>Sí. Atendemos las 24 horas. Escríbenos por WhatsApp y coordinamos el horario.</p></details>
+    <details><summary>¿Hacen fletes fuera de Santiago?</summary><p>Sí. Hacemos fletes y mudanzas dentro y fuera de Santiago. Dinos el origen y el destino al cotizar.</p></details>
+    <details><summary>¿Retiran escombros y cachureos?</summary><p>Sí. Retiramos escombros, cachureos y cosas que ya no usas. Mándanos una foto por WhatsApp para cotizarlo.</p></details>
+    <details><summary>¿Cómo se paga?</summary><p>El medio de pago se confirma por WhatsApp al cotizar.</p></details>
   </div>
 </div></section>
 
@@ -336,10 +446,17 @@ footer a{color:#fff}
   <span><a href="tel:+56923978173">+56 9 2397 8173</a> · &copy; <span id="y"></span></span>
 </div></footer>
 
+<div class="barra-movil">
+  <a class="ll" href="tel:+56923978173"><svg class="ico" style="stroke:currentColor" aria-hidden="true"><use href="#i-tel"/></svg>Llamar</a>
+  <a class="wa" href="https://wa.me/56923978173?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20cotizar%20un%20flete" target="_blank" rel="noopener"><svg fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>WhatsApp</a>
+</div>
+
 <a class="btn fab" href="https://wa.me/56923978173?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20cotizar%20un%20flete" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg><span class="fab-txt">Cotizar por WhatsApp</span></a>
 
 <script>
 document.getElementById('y').textContent = new Date().getFullYear();
+/* Barra de avance al bajar por la página */
+(function(){var b=document.getElementById('avance');function f(){var h=document.documentElement.scrollHeight-innerHeight;b.style.width=(h>0?Math.min(100,scrollY/h*100):0)+'%'}addEventListener('scroll',f,{passive:true});f()})();
 (function(){var els=document.querySelectorAll('.aparece');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('si')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('si');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px'});els.forEach(function(e){io.observe(e)})})();
 
 /* Tocar un servicio lo deja elegido en el cotizador */
@@ -363,10 +480,11 @@ document.getElementById('fCot').addEventListener('submit', function(ev){
   var aviso = document.getElementById('cAviso');
   if (!v('cDesde') || !v('cHasta')) { aviso.textContent = 'Dinos desde dónde y hasta dónde es el traslado.'; aviso.className = 'aviso err'; document.getElementById(v('cDesde') ? 'cHasta' : 'cDesde').focus(); return; }
   if (!v('cCarga')) { aviso.textContent = 'Cuéntanos qué hay que llevar para darte el valor.'; aviso.className = 'aviso err'; document.getElementById('cCarga').focus(); return; }
+  var tam = document.querySelector('input[name=tam]:checked');
   var f = v('cFecha'); if (f) { var p = f.split('-'); f = p[2] + '-' + p[1] + '-' + p[0]; }
   var m = 'Hola, vi su página web y quiero cotizar un flete.\n\n' +
     'Servicio: ' + v('cServicio') + '\nDesde: ' + v('cDesde') + '\nHasta: ' + v('cHasta') +
-    '\nFecha: ' + (f || 'por definir') + '\nCarga: ' + v('cCarga') + (v('cNombre') ? '\nNombre: ' + v('cNombre') : '');
+    '\nFecha: ' + (f || 'por definir') + (tam ? '\nTamaño: ' + tam.value : '') + '\nCarga: ' + v('cCarga') + (v('cNombre') ? '\nNombre: ' + v('cNombre') : '');
   aviso.textContent = 'Abriendo WhatsApp con tu cotización…'; aviso.className = 'aviso';
   window.open('https://wa.me/56923978173?text=' + encodeURIComponent(m), '_blank', 'noopener');
 });
