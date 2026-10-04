@@ -169,10 +169,6 @@ form .btn{grid-column:1/-1;min-height:60px;font-size:1.1rem}
 
 /* ---------- insignia grande ---------- */
 .sello-grande{width:min(210px,50vw);border-radius:50%;box-shadow:0 0 0 6px var(--marino),0 0 0 10px var(--naranja),0 24px 50px -18px rgba(0,0,0,.6);margin:0 auto 26px}
-.redes{display:flex;gap:10px;flex-wrap:wrap}
-.redes a{display:inline-flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;border:2px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 16px;color:#fff}
-.redes a:hover{background:var(--naranja);border-color:var(--naranja);color:#190d00}
-.redes svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
 
 /* ---------- barra de avance ---------- */
 .avance{position:fixed;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--naranja),var(--sol));z-index:70}
@@ -234,9 +230,36 @@ form .btn{grid-column:1/-1;min-height:60px;font-size:1.1rem}
 .cierre a.tel{display:inline-block;margin:14px 0 24px;font-family:var(--display);font-weight:900;font-style:italic;font-size:clamp(2.6rem,9vw,6rem);line-height:1;text-decoration:none;color:var(--marino)}
 .cierre .btn-wa{position:relative;z-index:1}
 
-footer{background:var(--marino2);color:#b9c3db;padding:30px 0 110px;font-size:.95rem}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:center}
+footer{background:var(--marino2);color:#b9c3db;padding:0 0 110px;font-size:.95rem}
 footer a{color:#fff}
+.encuentranos{padding:54px 0 46px;text-align:center;background:
+  radial-gradient(60% 120% at 50% 0%,rgba(255,122,18,.16),transparent 70%),var(--marino2)}
+.encuentranos h2{color:#fff;font-size:clamp(2rem,6vw,3.2rem);font-style:italic}
+.encuentranos h2 em{font-style:inherit;color:var(--naranja)}
+.encuentranos > .wrap > p{margin:10px auto 26px;max-width:46ch;color:#b9c3db}
+.red-lista{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:14px;max-width:820px;margin:0 auto;padding:0;list-style:none}
+.red{display:flex;align-items:center;gap:13px;text-align:left;text-decoration:none;color:#fff;border-radius:18px;padding:13px 16px;min-height:74px;
+  background:var(--c);box-shadow:0 5px 0 rgba(0,0,0,.35),0 18px 28px -16px var(--c);transition:transform .16s ease,box-shadow .16s ease,filter .16s ease}
+.red:hover{transform:translateY(-3px);filter:brightness(1.08)}
+.red:active{transform:translateY(3px);box-shadow:0 2px 0 rgba(0,0,0,.35)}
+.red:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.red .ic{flex:none;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center}
+.red .ic svg{width:25px;height:25px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.red .ic svg.lleno{fill:#fff;stroke:none}
+.red b{display:block;font:800 1.3rem/1 var(--display);text-transform:uppercase;letter-spacing:.4px}
+.red small{display:block;font-size:.86rem;font-weight:600;opacity:.92;margin-top:3px}
+.red .fl{margin-left:auto;font-size:1.3rem;opacity:.8;transition:transform .16s ease}
+.red:hover .fl{transform:translateX(4px)}
+.red-wa{--c:#128c4a}
+.red-ig{--c:#c13584;background:linear-gradient(45deg,#f09433 0%,#e6683c 22%,#dc2743 48%,#cc2366 72%,#8a3ab9 100%)}
+.red-tt{--c:#000;background:#000;box-shadow:0 5px 0 #25f4ee,0 5px 0 2px #fe2c55,0 18px 28px -16px #000}
+.red-fb{--c:#1877f2}
+.pie-base{border-top:1px solid rgba(255,255,255,.12);padding:22px 0 0}
+.pie-base .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 22px;align-items:center}
+.pie-legal{display:flex;flex-wrap:wrap;gap:6px 18px}
+.pie-legal a{color:#b9c3db}
+.pie-legal a:hover{color:#fff}
+@media (prefers-reduced-motion:reduce){.red,.red .fl{transition:none}}
 .fab{position:fixed;right:16px;bottom:16px;z-index:60;min-height:56px;border-radius:999px;box-shadow:0 5px 0 var(--naranja2),0 16px 30px -10px rgba(0,0,0,.55)}
 
 .aparece{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
@@ -454,6 +477,7 @@ footer a{color:#fff}
         <input id="cNombre" autocomplete="name"></label>
       <p class="aviso" id="cAviso" role="status"></p>
       <button class="btn btn-wa" type="submit"><svg aria-hidden="true"><use href="#wa"/></svg>Enviar cotización por WhatsApp</button>
+      <p class="todo" style="margin:10px 0 0;font-size:.85rem;color:var(--muted)">Al enviar aceptas los <a href="terminos.html" target="_blank" rel="noopener">Términos</a> y la <a href="privacidad.html" target="_blank" rel="noopener">Política de privacidad</a>.</p>
     </form>
   </div>
 </div></section>
@@ -481,11 +505,22 @@ footer a{color:#fff}
 </div></section>
 </main>
 
-<footer><div class="wrap">
+<footer>
+<div class="encuentranos"><div class="wrap">
+  <h2>Encuéntranos <em>en</em></h2>
+  <p>Mira nuestros trabajos y escríbenos por donde te quede más cómodo.</p>
+  <ul class="red-lista">
+    <li><a class="red red-wa" href="https://wa.me/56923978173?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20cotizar%20un%20flete" target="_blank" rel="noopener"><span class="ic"><svg class="lleno" aria-hidden="true"><use href="#wa"/></svg></span><span><b>WhatsApp</b><small>+56 9 2397 8173</small></span><span class="fl" aria-hidden="true">&rarr;</span></a></li>
+    <li><a class="red red-ig" href="https://www.instagram.com/trans_porteobelisco/" target="_blank" rel="noopener"><span class="ic"><svg aria-hidden="true"><use href="#i-ig"/></svg></span><span><b>Instagram</b><small>@trans_porteobelisco</small></span><span class="fl" aria-hidden="true">&rarr;</span></a></li>
+    <li><a class="red red-tt" href="https://www.tiktok.com/@fletes.obelisco" target="_blank" rel="noopener"><span class="ic"><svg aria-hidden="true"><use href="#i-tt"/></svg></span><span><b>TikTok</b><small>@fletes.obelisco</small></span><span class="fl" aria-hidden="true">&rarr;</span></a></li>
+  </ul>
+</div></div>
+<div class="pie-base"><div class="wrap">
   <span>Transportes Obelisco · Fletes y mudanzas dentro y fuera de Santiago</span>
-  <span class="redes"><a href="https://www.instagram.com/trans_porteobelisco/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>Instagram</a><a href="https://www.tiktok.com/@fletes.obelisco" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-tt"/></svg>TikTok @fletes.obelisco</a></span>
+  <span class="pie-legal"><a href="terminos.html">Términos y condiciones</a><a href="privacidad.html">Política de privacidad</a></span>
   <span><a href="tel:+56923978173">+56 9 2397 8173</a> · &copy; <span id="y"></span></span>
-</div></footer>
+</div></div>
+</footer>
 
 <div class="barra-movil">
   <a class="ll" href="tel:+56923978173"><svg class="ico" style="stroke:currentColor" aria-hidden="true"><use href="#i-tel"/></svg>Llamar</a>

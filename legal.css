@@ -1,0 +1,30 @@
+*,*::before,*::after{box-sizing:border-box}
+:root{--marino:#101a33;--marino2:#0a1124;--naranja:#ff7a12;--naranja2:#e56200;--bg:#f6f3ec;--text:#131a2c;--muted:#58627a;--line:#ddd8cc}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.05rem/1.7 "Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-wrap:anywhere}
+a{color:var(--naranja2);text-underline-offset:3px}
+a:hover{color:var(--marino)}
+a:focus-visible{outline:3px solid var(--naranja);outline-offset:3px}
+.wrap{width:min(780px,100% - 40px);margin-inline:auto}
+.skip{position:absolute;left:-999px;top:0;background:#fff;color:var(--marino);padding:10px 14px;z-index:99}
+.skip:focus{left:8px;top:8px}
+header{background:var(--marino);border-bottom:4px solid var(--naranja)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:68px}
+.marca{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font:800 1.25rem/1 "Barlow Condensed","Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.4px}
+.marca img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.marca b{color:var(--naranja)}
+.back{color:#d5dcee;font-weight:600;text-decoration:none;padding:12px 0;font-size:.97rem}
+.back:hover{color:#fff}
+main{padding:46px 0 70px}
+h1{font:italic 900 clamp(2.2rem,8vw,3.4rem)/.95 "Barlow Condensed","Arial Narrow",Impact,sans-serif;text-transform:uppercase;margin:0 0 12px;color:var(--marino)}
+h1 em{color:var(--naranja2)}
+.upd{color:var(--muted);font-size:.93rem;margin:0 0 28px}
+h2{font:800 1.45rem/1.15 "Barlow Condensed","Arial Narrow",sans-serif;text-transform:uppercase;letter-spacing:.3px;color:var(--marino);margin:38px 0 10px;padding-left:12px;border-left:5px solid var(--naranja)}
+p{margin:0 0 14px}
+ul,ol{margin:0 0 16px;padding-left:24px}
+li{margin-bottom:8px}
+.nota{background:#fff;border:1px solid var(--line);border-left:5px solid var(--naranja);border-radius:10px;padding:16px 18px;margin:24px 0}
+footer{background:var(--marino2);color:#b9c3db;padding:30px 0;font-size:.95rem}
+footer p{margin:0 0 6px}
+footer a{color:#fff}
+footer .sep{margin:0 8px;opacity:.5}
