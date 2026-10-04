@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Transportes Obelisco · Fletes y mudanzas dentro y fuera de Santiago</title>
-<meta name="description" content="Fletes y mudanzas rápidas, seguras y económicas, dentro y fuera de Santiago. Mudanzas, fletes express, reparto y retiro de escombros. Cotiza por WhatsApp, 24 horas.">
+<meta name="description" content="Transportes Obelisco: fletes y mudanzas con peonetas y embalaje, en todas las comunas y fuera de Santiago. 5 años de experiencia, boleta y factura. Cotiza por WhatsApp, 24 horas.">
 <meta property="og:title" content="Transportes Obelisco · Fletes y mudanzas">
 <meta property="og:description" content="Fletes y mudanzas dentro y fuera de Santiago. Cotiza tu servicio por WhatsApp.">
 <meta property="og:image" content="assets/og.jpg">
-<link rel="icon" href="assets/logo.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"Transportes Obelisco","description":"Fletes y mudanzas dentro y fuera de Santiago","telephone":"+56923978173","areaServed":"Santiago, Chile","openingHours":"Mo-Su 00:00-23:59"}</script>
+<link rel="icon" href="assets/icono.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"MovingCompany","name":"Transportes Obelisco","description":"Fletes y mudanzas dentro y fuera de Santiago","telephone":"+56923978173","areaServed":"Santiago, Chile","openingHours":"Mo-Su 00:00-23:59","paymentAccepted":"Efectivo, transferencia","sameAs":["https://www.instagram.com/trans_porteobelisco/"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -32,7 +32,7 @@ h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.95;margin:0;tex
 header{position:sticky;top:0;z-index:40;background:rgba(16,26,51,.96);backdrop-filter:blur(8px);color:#fff}
 .barra{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:68px}
 .marca{display:flex;align-items:center;gap:10px;text-decoration:none}
-.marca img{height:44px;width:auto}
+.marca img{height:50px;width:50px;border-radius:50%;object-fit:cover;border:2px solid var(--naranja)}
 .marca span{font-family:var(--display);font-weight:900;font-size:1.55rem;line-height:.95;text-transform:uppercase}
 .marca small{display:block;font:italic 500 .7rem/1 Georgia,serif;letter-spacing:.16em;text-transform:uppercase;color:var(--sol)}
 nav{display:flex;gap:24px;align-items:center}
@@ -104,7 +104,7 @@ h2 em{font-style:italic;color:var(--naranja2)}
 .porque::before{content:"24H";position:absolute;right:-30px;top:-70px;font-family:var(--display);font-weight:900;font-style:italic;font-size:26rem;line-height:1;color:rgba(255,255,255,.035);pointer-events:none}
 .porque h2{color:#fff}.porque h2 em{color:var(--naranja)}
 .porque .cab p{color:#c5cfe6}
-.razones{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;position:relative}
+.razones{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative}
 .razon{background:var(--marino3);border-radius:16px;padding:26px 22px;border-bottom:6px solid var(--naranja)}
 .razon svg{width:44px;height:44px;stroke:var(--sol);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;margin-bottom:14px}
 .razon h3{font-size:1.75rem;margin-bottom:8px}
@@ -154,6 +154,22 @@ form .btn{grid-column:1/-1;min-height:60px;font-size:1.1rem}
 .datos li{display:flex;gap:14px;align-items:center;font-size:1.08rem}
 .datos svg{width:46px;height:46px;padding:10px;border-radius:12px;background:var(--marino);stroke:var(--sol);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
 .datos b{display:block;font-family:var(--display);font-size:1.35rem;text-transform:uppercase;color:var(--marino);line-height:1.05}
+
+/* ---------- cifras ---------- */
+.cifras{background:var(--marino2);color:#fff;padding:0;border-bottom:4px solid var(--naranja)}
+.cifras ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.cifras li{padding:30px 16px;text-align:center;border-right:1px solid rgba(255,255,255,.12)}
+.cifras li:last-child{border-right:0}
+.cifras b span{display:inline;margin:0;font:inherit;letter-spacing:0;text-transform:none;color:inherit}
+.cifras b{display:block;font-family:var(--display);font-weight:900;font-style:italic;font-size:clamp(2.6rem,6vw,4.2rem);line-height:1;color:var(--naranja)}
+.cifras span{display:block;margin-top:6px;font-weight:600;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;color:#d3dbee}
+
+/* ---------- insignia grande ---------- */
+.sello-grande{width:min(210px,50vw);border-radius:50%;box-shadow:0 0 0 6px var(--marino),0 0 0 10px var(--naranja),0 24px 50px -18px rgba(0,0,0,.6);margin:0 auto 26px}
+.redes{display:flex;gap:10px;flex-wrap:wrap}
+.redes a{display:inline-flex;align-items:center;gap:8px;font-weight:700;text-decoration:none;border:2px solid rgba(255,255,255,.35);border-radius:999px;padding:7px 16px;color:#fff}
+.redes a:hover{background:var(--naranja);border-color:var(--naranja);color:#190d00}
+.redes svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
 
 /* ---------- barra de avance ---------- */
 .avance{position:fixed;left:0;top:0;height:4px;width:0;background:linear-gradient(90deg,var(--naranja),var(--sol));z-index:70}
@@ -224,7 +240,6 @@ footer a{color:#fff}
 .aparece.si{opacity:1;transform:none}
 .servicios .aparece:nth-child(2),.razones .aparece:nth-child(2){transition-delay:.08s}
 .servicios .aparece:nth-child(3),.razones .aparece:nth-child(3){transition-delay:.16s}
-.razones .aparece:nth-child(4){transition-delay:.24s}
 @media (prefers-reduced-motion:reduce){.aparece{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}.cinta div,.camion,.chapa i,.insignia{animation:none}.camion{left:calc(50% - 27px)}}
 @media (max-width:920px){
   nav a:not(.btn){display:none}
@@ -248,6 +263,10 @@ footer a{color:#fff}
   .tarjeta{padding:22px 18px;box-shadow:8px 8px 0 var(--naranja)}
   .cinta span{font-size:1.3rem}
   .sellos{gap:14px 20px}
+  .cifras ul{grid-template-columns:1fr 1fr}
+  .cifras li:nth-child(2){border-right:0}
+  .cifras li:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}
+  .razones{grid-template-columns:1fr}
   .insignia.a{left:-14px;font-size:1.5rem}
   .insignia.b{right:-12px;font-size:1rem}
   .cosas li{font-size:1.1rem;padding:6px 16px 6px 8px}
@@ -273,13 +292,15 @@ footer a{color:#fff}
 <symbol id="i-precio" viewBox="0 0 24 24"><path d="M20.4 13.1 13 20.5a1.6 1.6 0 0 1-2.2 0L3 12.7V4h8.700l8.700 8.700a.300.300 0 0 1 0 .400Z"/><circle cx="7.5" cy="8.5" r="1.3"/></symbol>
 <symbol id="i-rayo" viewBox="0 0 24 24"><path d="M13 3 5 13.5h6L10 21l8-10.500h-6L13 3Z"/></symbol>
 <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.300 3 7.700 7 9.500 4-1.800 7-5.200 7-9.500V6l-7-3Z"/><path d="m9 12 2.200 2.200 4-4.200"/></symbol>
+<symbol id="i-camion2" viewBox="0 0 24 24"><path d="M2 7h11v9H2zM13 10h4l3 3v3h-7z"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/></symbol>
 <symbol id="i-tel" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></symbol>
 <symbol id="i-camion" viewBox="0 0 64 64"><rect x="4" y="22" width="34" height="22" rx="3" fill="#ff7a12"/><path d="M38 28h12l8 9v7H38z" fill="#101a33"/><path d="M43 31h6l4 5H43z" fill="#bfe0ff"/><circle cx="16" cy="46" r="6" fill="#101a33"/><circle cx="16" cy="46" r="2.5" fill="#fff"/><circle cx="48" cy="46" r="6" fill="#101a33"/><circle cx="48" cy="46" r="2.5" fill="#fff"/></symbol>
 </svg>
 
 <div class="avance" id="avance" aria-hidden="true"></div>
 <header><div class="wrap barra">
-  <a class="marca" href="#"><img src="assets/logo.png" alt="" width="160" height="141"><span><small>Transportes</small>Obelisco</span></a>
+  <a class="marca" href="#"><img src="assets/logo.png" alt="" width="200" height="200"><span><small>Transportes</small>Obelisco</span></a>
   <nav aria-label="Principal">
     <a href="#servicios">Servicios</a><a href="#trabajos">Trabajos</a><a href="#preguntas">Preguntas</a><a href="#cotizar">Cotizar</a>
     <a class="btn btn-wa" href="https://wa.me/56923978173?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20cotizar%20un%20flete" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>WhatsApp</a>
@@ -291,19 +312,19 @@ footer a{color:#fff}
   <div>
     <p class="chapa"><i aria-hidden="true"></i>Atención 24 horas</p>
     <h1><span>Fletes</span><span class="y">y</span><span class="n">mudanzas</span></h1>
-    <p class="lema"><b>Rápidas, seguras y económicas.</b> Dentro y fuera de Santiago. Dinos qué llevas y te cotizamos por WhatsApp.</p>
+    <p class="lema"><b>Tu mudanza sin estrés.</b> Rápidas, seguras y económicas, con peonetas y embalaje. En todas las comunas y fuera de Santiago.</p>
     <div class="cta">
       <a class="btn" href="#cotizar">Cotiza tu servicio</a>
       <a class="btn btn-linea" href="tel:+56923978173"><svg class="ico" style="stroke:currentColor" aria-hidden="true"><use href="#i-tel"/></svg>+56 9 2397 8173</a>
     </div>
     <ul class="sellos">
-      <li><svg aria-hidden="true"><use href="#i-precio"/></svg>Mejor precio asegurado</li>
-      <li><svg aria-hidden="true"><use href="#i-mapa"/></svg>Dentro y fuera de Santiago</li>
-      <li><svg aria-hidden="true"><use href="#i-reloj"/></svg>24 horas</li>
+      <li><svg aria-hidden="true"><use href="#i-escudo"/></svg>5 años de experiencia</li>
+      <li><svg aria-hidden="true"><use href="#i-mapa"/></svg>Todas las comunas</li>
+      <li><svg aria-hidden="true"><use href="#i-precio"/></svg>Boleta y factura</li>
     </ul>
   </div>
   <div class="celular-wrap">
-    <span class="insignia a" aria-hidden="true">24H<small>todos los días</small></span>
+    <span class="insignia a" aria-hidden="true">5 años<small>de experiencia</small></span>
     <span class="insignia b" aria-hidden="true">Mejor precio<small>asegurado</small></span>
     <figure class="celular">
       <video src="assets/hero.mp4" poster="assets/hero.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Video del equipo de Transportes Obelisco cargando un refrigerador"></video>
@@ -317,13 +338,20 @@ footer a{color:#fff}
   <span>Mudanzas</span><span>Flete express</span><span>Transporte de mobiliario</span><span>Flete local</span><span>Reparto</span><span>Retiro de escombros</span><span>24 horas</span>
 </div></div>
 
+<section class="cifras" aria-label="Transportes Obelisco en cifras"><div class="wrap"><ul>
+  <li><b><span class="cuenta" data-n="5">5</span></b><span>años de experiencia</span></li>
+  <li><b><span class="cuenta" data-n="2000" data-miles="1">2.000</span> kg</b><span>de capacidad por viaje</span></li>
+  <li><b>24 h</b><span>de atención</span></li>
+  <li><b>100%</b><span>de las comunas de Santiago</span></li>
+</ul></div></section>
+
 <section id="servicios"><div class="wrap">
   <div class="cab aparece"><p class="ojo">Servicios</p><h2>Todo tipo de <em>fletes</em></h2><p>Elige lo que necesitas y te cotizamos por WhatsApp.</p></div>
   <div class="servicios">
-    <a class="svc aparece" href="#cotizar" data-servicio="Mudanza"><img src="assets/foto-17.jpg" alt="" loading="lazy"><span class="num">01</span><h3>Mudanzas</h3><p>Casas, departamentos y oficinas. Cargamos, amarramos y entregamos.</p><span class="ir">Cotizar mudanza</span></a>
+    <a class="svc aparece" href="#cotizar" data-servicio="Mudanza"><img src="assets/foto-17.jpg" alt="" loading="lazy"><span class="num">01</span><h3>Mudanzas</h3><p>Casas, departamentos y oficinas, con peonetas y embalaje.</p><span class="ir">Cotizar mudanza</span></a>
     <a class="svc aparece" href="#cotizar" data-servicio="Transporte de mobiliario"><img src="assets/foto-03.jpg" alt="" loading="lazy"><span class="num">02</span><h3>Mobiliario</h3><p>Muebles, camas, sillones, refrigeradores, lavadoras y más.</p><span class="ir">Cotizar transporte</span></a>
     <a class="svc aparece" href="#cotizar" data-servicio="Flete express"><img src="assets/foto-06.jpg" alt="" loading="lazy"><span class="num">03</span><h3>Flete express</h3><p>Para cuando lo necesitas hoy. Atendemos las 24 horas.</p><span class="ir">Cotizar express</span></a>
-    <a class="svc aparece" href="#cotizar" data-servicio="Flete local"><img src="assets/foto-16.jpg" alt="" loading="lazy"><span class="num">04</span><h3>Flete local</h3><p>Traslados dentro de Santiago, de una comuna a otra.</p><span class="ir">Cotizar flete local</span></a>
+    <a class="svc aparece" href="#cotizar" data-servicio="Flete local"><img src="assets/foto-16.jpg" alt="" loading="lazy"><span class="num">04</span><h3>Flete local</h3><p>Traslados en todas las comunas de Santiago.</p><span class="ir">Cotizar flete local</span></a>
     <a class="svc aparece" href="#cotizar" data-servicio="Flete de reparto"><img src="assets/foto-05.jpg" alt="" loading="lazy"><span class="num">05</span><h3>Reparto</h3><p>Mercadería y cajas para negocios y bodegas.</p><span class="ir">Cotizar reparto</span></a>
     <a class="svc aparece" href="#cotizar" data-servicio="Retiro de escombros y cachureos"><img src="assets/video-1.jpg" alt="" loading="lazy"><span class="num">06</span><h3>Escombros y cachureos</h3><p>Retiramos escombros y lo que ya no usas.</p><span class="ir">Cotizar retiro</span></a>
   </div>
@@ -337,11 +365,13 @@ footer a{color:#fff}
 </div></section>
 
 <section class="porque"><div class="wrap">
-  <div class="cab aparece"><p class="ojo" style="color:var(--sol)">Por qué Obelisco</p><h2>Rápido <em>y seguro</em></h2></div>
+  <div class="cab aparece"><p class="ojo" style="color:var(--sol)">Por qué Obelisco</p><h2>Tu mudanza <em>sin estrés</em></h2><p>Puntualidad, confianza y precios justos.</p></div>
   <div class="razones">
-    <div class="razon aparece"><svg aria-hidden="true"><use href="#i-rayo"/></svg><h3>Rápidos</h3><p>Coordinamos todo por WhatsApp, sin vueltas.</p></div>
-    <div class="razon aparece"><svg aria-hidden="true"><use href="#i-escudo"/></svg><h3>Seguros</h3><p>Tu carga viaja amarrada con correas y bien acomodada.</p></div>
-    <div class="razon aparece"><svg aria-hidden="true"><use href="#i-precio"/></svg><h3>Económicos</h3><p>Mejor precio asegurado. Cotizas antes de decidir.</p></div>
+    <div class="razon aparece"><svg aria-hidden="true"><use href="#i-escudo"/></svg><h3>5 años de experiencia</h3><p>Llevamos 5 años haciendo fletes y mudanzas.</p></div>
+    <div class="razon aparece"><svg aria-hidden="true"><use href="#i-rayo"/></svg><h3>Peonetas y embalaje</h3><p>Vamos con peonetas y embalamos tus muebles para que viajen protegidos.</p></div>
+    <div class="razon aparece"><svg aria-hidden="true"><use href="#i-camion2"/></svg><h3>Hasta 2.000 kg</h3><p>Camión con capacidad de 2.000 kilos por viaje.</p></div>
+    <div class="razon aparece"><svg aria-hidden="true"><use href="#i-precio"/></svg><h3>Boleta y factura</h3><p>Pagas con transferencia o efectivo, y te entregamos boleta o factura.</p></div>
+    <div class="razon aparece"><svg aria-hidden="true"><use href="#i-mapa"/></svg><h3>Todas las comunas</h3><p>Trabajamos en todas las comunas, dentro y fuera de Santiago.</p></div>
     <div class="razon aparece"><svg aria-hidden="true"><use href="#i-reloj"/></svg><h3>24 horas</h3><p>Escríbenos cuando lo necesites, también de noche.</p></div>
   </div>
 </div></section>
@@ -366,15 +396,17 @@ footer a{color:#fff}
 </section>
 
 <section class="trabajos" id="trabajos"><div class="wrap">
-  <div class="cab aparece"><p class="ojo" style="color:var(--sol)">Trabajos</p><h2>Así <em>trabajamos</em></h2><p>Fotos y videos de fletes y mudanzas reales. Desliza para ver más.</p></div>
+  <div class="cab aparece"><p class="ojo" style="color:var(--sol)">Trabajos</p><h2>Así <em>trabajamos</em></h2><p>Fotos y videos de fletes y mudanzas reales. Desliza para ver más, o míranos en <a href="https://www.instagram.com/trans_porteobelisco/" target="_blank" rel="noopener" style="color:var(--sol)">Instagram</a>.</p></div>
   <div class="carril aparece" id="carril">
-    <figure class="vid"><video src="assets/video-4.mp4" poster="assets/video-4.jpg" controls muted playsinline preload="none"></video></figure>
+    <figure class="vid"><video src="assets/v-embalaje.mp4" poster="assets/v-embalaje.jpg" controls muted playsinline preload="none"></video></figure>
     <figure><img src="assets/foto-09.jpg" alt="Camión cargado con cajas para reparto" loading="lazy"><figcaption>Reparto de mercadería</figcaption></figure>
-    <figure class="vid"><video src="assets/video-5.mp4" poster="assets/video-5.jpg" controls muted playsinline preload="none"></video></figure>
+    <figure class="vid"><video src="assets/v-carro.mp4" poster="assets/v-carro.jpg" controls muted playsinline preload="none"></video></figure>
     <figure><img src="assets/foto-13.jpg" alt="Traslado de equipos en cajas de transporte" loading="lazy"><figcaption>Traslado de equipos</figcaption></figure>
-    <figure class="vid"><video src="assets/video-1.mp4" poster="assets/video-1.jpg" controls muted playsinline preload="none"></video></figure>
+    <figure class="vid"><video src="assets/video-4.mp4" poster="assets/video-4.jpg" controls muted playsinline preload="none"></video></figure>
     <figure><img src="assets/foto-15.jpg" alt="Flete fuera de Santiago, frente a la costa" loading="lazy"><figcaption>Fuera de Santiago</figcaption></figure>
+    <figure class="vid"><video src="assets/v-grua.mp4" poster="assets/v-grua.jpg" controls muted playsinline preload="none"></video></figure>
     <figure><img src="assets/foto-12.jpg" alt="Dos camiones de Transportes Obelisco" loading="lazy"><figcaption>Nuestros camiones</figcaption></figure>
+    <figure class="vid"><video src="assets/v-cajas.mp4" poster="assets/v-cajas.jpg" controls muted playsinline preload="none"></video></figure>
     <figure><img src="assets/foto-17.jpg" alt="Mudanza con sillón, colchón y muebles" loading="lazy"><figcaption>Mudanza de departamento</figcaption></figure>
   </div>
   <div class="flechas"><button type="button" id="cPrev" aria-label="Ver anteriores">←</button><button type="button" id="cNext" aria-label="Ver siguientes">→</button></div>
@@ -388,7 +420,8 @@ footer a{color:#fff}
     <ul class="datos">
       <li><svg aria-hidden="true"><use href="#i-tel"/></svg><span><b>WhatsApp</b><a href="https://wa.me/56923978173" target="_blank" rel="noopener">+56 9 2397 8173</a></span></li>
       <li><svg aria-hidden="true"><use href="#i-reloj"/></svg><span><b>Horario</b>Atención 24 horas</span></li>
-      <li><svg aria-hidden="true"><use href="#i-mapa"/></svg><span><b>Zona</b>Dentro y fuera de Santiago</span></li>
+      <li><svg aria-hidden="true"><use href="#i-mapa"/></svg><span><b>Zona</b>Todas las comunas, dentro y fuera de Santiago</span></li>
+      <li><svg aria-hidden="true"><use href="#i-precio"/></svg><span><b>Pago</b>Transferencia o efectivo · boleta y factura</span></li>
     </ul>
   </div>
   <div class="tarjeta aparece">
@@ -428,13 +461,16 @@ footer a{color:#fff}
     <details open><summary>¿Cómo cotizo mi flete?</summary><p>Completa el cotizador de esta página o escríbenos por WhatsApp. Cuéntanos qué llevas, desde dónde, hasta dónde y para cuándo, y te respondemos con el valor.</p></details>
     <details><summary>¿De qué depende el precio?</summary><p>De la cantidad de carga, la distancia y si hay escaleras o ascensor. Por eso cotizamos cada servicio por separado.</p></details>
     <details><summary>¿Atienden de noche o fines de semana?</summary><p>Sí. Atendemos las 24 horas. Escríbenos por WhatsApp y coordinamos el horario.</p></details>
-    <details><summary>¿Hacen fletes fuera de Santiago?</summary><p>Sí. Hacemos fletes y mudanzas dentro y fuera de Santiago. Dinos el origen y el destino al cotizar.</p></details>
+    <details><summary>¿A qué comunas llegan?</summary><p>Trabajamos en todas las comunas de Santiago y también fuera de Santiago. Dinos el origen y el destino al cotizar.</p></details>
     <details><summary>¿Retiran escombros y cachureos?</summary><p>Sí. Retiramos escombros, cachureos y cosas que ya no usas. Mándanos una foto por WhatsApp para cotizarlo.</p></details>
-    <details><summary>¿Cómo se paga?</summary><p>El medio de pago se confirma por WhatsApp al cotizar.</p></details>
+    <details><summary>¿Cómo se paga?</summary><p>Con transferencia o efectivo. Entregamos boleta o factura.</p></details>
+    <details><summary>¿Incluye peonetas y embalaje?</summary><p>Sí. Trabajamos con peonetas y embalaje, para que tus cosas viajen protegidas.</p></details>
+    <details><summary>¿Cuánta carga lleva el camión?</summary><p>Hasta 2.000 kilos por viaje. Si es más, lo coordinamos al cotizar.</p></details>
   </div>
 </div></section>
 
-<section class="cierre"><div class="wrap aparece">
+<section class="cierre"><div class="wrap">
+  <img class="sello-grande" src="assets/insignia.jpg" alt="Logo de Transportes Obelisco" width="640" height="640" loading="lazy">
   <h2>¿Lo necesitas hoy?</h2>
   <a class="tel" href="tel:+56923978173">+56 9 2397 8173</a><br>
   <a class="btn btn-wa" href="https://wa.me/56923978173?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20cotizar%20un%20flete" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Escríbenos por WhatsApp</a>
@@ -443,6 +479,7 @@ footer a{color:#fff}
 
 <footer><div class="wrap">
   <span>Transportes Obelisco · Fletes y mudanzas dentro y fuera de Santiago</span>
+  <span class="redes"><a href="https://www.instagram.com/trans_porteobelisco/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>@trans_porteobelisco</a></span>
   <span><a href="tel:+56923978173">+56 9 2397 8173</a> · &copy; <span id="y"></span></span>
 </div></footer>
 
@@ -458,6 +495,20 @@ document.getElementById('y').textContent = new Date().getFullYear();
 /* Barra de avance al bajar por la página */
 (function(){var b=document.getElementById('avance');function f(){var h=document.documentElement.scrollHeight-innerHeight;b.style.width=(h>0?Math.min(100,scrollY/h*100):0)+'%'}addEventListener('scroll',f,{passive:true});f()})();
 (function(){var els=document.querySelectorAll('.aparece');if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('si')});return}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('si');io.unobserve(e.target)}})},{rootMargin:'0px 0px -6% 0px'});els.forEach(function(e){io.observe(e)})})();
+
+/* Las cifras cuentan desde cero al aparecer (el número final ya está escrito, por si no hay JS) */
+(function(){
+  var els = document.querySelectorAll('.cuenta');
+  if (!('IntersectionObserver' in window) || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){
+    if (!e.isIntersecting) return; io.unobserve(e.target);
+    var fin = +e.target.dataset.n, miles = e.target.dataset.miles, t0 = null;
+    function paso(ts){ if(!t0) t0 = ts; var k = Math.min(1, (ts - t0) / 1100), v = Math.round(fin * (1 - Math.pow(1 - k, 3)));
+      e.target.textContent = miles ? v.toLocaleString('es-CL') : v; if (k < 1) requestAnimationFrame(paso); }
+    requestAnimationFrame(paso);
+  }); }, { threshold: .6 });
+  els.forEach(function(el){ io.observe(el); });
+})();
 
 /* Tocar un servicio lo deja elegido en el cotizador */
 document.querySelectorAll('[data-servicio]').forEach(function(a){
@@ -495,7 +546,7 @@ document.getElementById('fCot').addEventListener('submit', function(ev){
   saludo: "Hola, soy el asistente de Transportes Obelisco. ¿Qué necesitas mover?",
   cuando: [{t:"Hoy o lo antes posible", m:"Lo necesito hoy o lo antes posible."},{t:"Esta semana", m:"Me acomoda esta semana."},{t:"Fin de semana", m:"Me acomoda el fin de semana."},{t:"Todavía no sé", m:"Todavía no tengo la fecha."}],
   servicios: [
-    {n:"Mudanza", info:"Hacemos mudanzas de casas, departamentos y oficinas, dentro y fuera de Santiago.", opts:["Departamento","Casa","Oficina"], kw:"mudanza|mudar|cambio de casa|cambiarme|departamento|depto"},
+    {n:"Mudanza", info:"Hacemos mudanzas de casas, departamentos y oficinas, con peonetas y embalaje, en todas las comunas y fuera de Santiago.", opts:["Departamento","Casa","Oficina"], kw:"mudanza|mudar|cambio de casa|cambiarme|departamento|depto"},
     {n:"Transporte de mobiliario", info:"Trasladamos muebles, camas, sillones, refrigeradores, lavadoras y otros artefactos.", opts:[], kw:"mueble|mobiliario|sillon|sofa|cama|colchon|refrigerador|lavadora|cocina|artefacto"},
     {n:"Flete express", info:"Para cuando lo necesitas hoy mismo. Atendemos las 24 horas.", opts:[], kw:"express|urgente|ahora|hoy mismo|rapido"},
     {n:"Flete local o de reparto", info:"Traslados dentro de Santiago y reparto de mercadería o cajas para negocios.", opts:["Flete local","Reparto de mercadería"], kw:"flete|reparto|mercader|caja|bodega|local|traslado"},
@@ -503,9 +554,12 @@ document.getElementById('fCot').addEventListener('submit', function(ev){
   ],
   faq: [
     {pri:true, kw:"precio|valor|cuanto|costo|cobra|tarifa|sale", r:"El valor depende de la carga, la distancia y si hay escaleras o ascensor. Cuéntanos qué llevas, desde dónde y hasta dónde, y te cotizamos por WhatsApp."},
-    {kw:"region|fuera de santiago|vina|valparaiso|rancagua|costa|playa|otra ciudad|donde llegan|cobertura|comuna", r:"Hacemos fletes y mudanzas dentro y fuera de Santiago. Dinos el origen y el destino y te confirmamos por WhatsApp."},
+    {kw:"region|fuera de santiago|vina|valparaiso|rancagua|costa|playa|otra ciudad|donde llegan|cobertura|comuna", r:"Trabajamos en todas las comunas de Santiago y también fuera de Santiago. Dinos el origen y el destino y te cotizamos."},
     {kw:"horario|hora|abren|atienden|noche|domingo|feriado|24", r:"Atendemos las 24 horas. Escríbenos por WhatsApp y coordinamos."},
-    {kw:"pago|transferencia|efectivo|tarjeta|factura|boleta", r:"El medio de pago se confirma por WhatsApp al cotizar."},
+    {kw:"pago|transferencia|efectivo|tarjeta|factura|boleta", r:"Puedes pagar con transferencia o efectivo. Entregamos boleta o factura."},
+    {kw:"peoneta|ayudante|embala|embalaje|proteg|carga y descarga|cargan", r:"Sí, trabajamos con peonetas y embalaje para que tus cosas viajen protegidas."},
+    {kw:"capacidad|kilo|peso|cuanto cabe|tamano del camion|toneladas", r:"El camión lleva hasta 2.000 kilos por viaje. Si es más carga, lo coordinamos al cotizar."},
+    {kw:"experiencia|anos|confianza|confiable|quienes son", r:"Transportes Obelisco lleva 5 años haciendo fletes y mudanzas."},
     {kw:"cotiz|presupuesto|agendar|reservar|como funciona", r:"Puedes cotizar con el formulario de esta página o elegir aquí el servicio: te dejo el mensaje listo para WhatsApp."}
   ]
 };</script>
