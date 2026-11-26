@@ -610,5 +610,131 @@ document.getElementById('fCot').addEventListener('submit', function(ev){
   ]
 };</script>
 <script src="asistente.js" defer></script>
+<script id="mm-sc">
+/* Menú para celular universal de las demos de SENTRY-CODE (23-11-2026).
+   Se inserta al final del <body>. Arma el menú con los enlaces de la cabecera o, si no hay,
+   con las secciones que tienen id y título. Agrega el WhatsApp y el Instagram del negocio
+   (nunca los de SENTRY-CODE). Solo aparece cuando la cabecera no muestra su propio menú. */
+(function () {
+  if (document.querySelector('.menu-btn,.mm-btn')) return;
+  var header = document.querySelector('header');
+  if (!header) return;
+
+  function visible(el) { var r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(el).visibility !== 'hidden'; }
+  function texto(el) { return (el.textContent || '').replace(/\s+/g, ' ').trim(); }
+  function fondo(el) {
+    while (el && el !== document.documentElement) {
+      var c = getComputedStyle(el).backgroundColor;
+      if (c && c !== 'transparent' && !/rgba\(\d+, \d+, \d+, 0\)/.test(c)) return c;
+      el = el.parentElement;
+    }
+    return getComputedStyle(document.body).backgroundColor || '#fff';
+  }
+  var propio = /sentry|56974479565|7447 ?9565/i;
+
+  // Barra fija o pegada arriba que no está dentro del <header> (algunos diseños la tienen aparte).
+  var barra = [].slice.call(document.querySelectorAll('body nav, body > div, body > header')).filter(function (e) {
+    if (header.contains(e)) return false;
+    var st = getComputedStyle(e), r = e.getBoundingClientRect();
+    return /fixed|sticky/.test(st.position) && r.top <= 10 && r.height >= 36 && r.height <= 110;
+  })[0];
+  var fuentes = [header].concat(barra ? [barra] : []);
+  var navLinks = [].concat.apply([], fuentes.map(function (f) { return [].slice.call(f.querySelectorAll('a[href^="#"]')); })).filter(function (a) {
+    var h = a.getAttribute('href'); return h.length > 1 && !/^#(inicio|top|arriba)$/i.test(h) && texto(a) && !a.closest('.marca');
+  });
+  var items = [], vistos = {};
+  navLinks.forEach(function (a) { var h = a.getAttribute('href'); if (!vistos[h]) { vistos[h] = 1; items.push({ t: texto(a), h: h }); } });
+  if (items.length < 2) {
+    items = []; vistos = {};
+    [].forEach.call(document.querySelectorAll('section[id]'), function (s) {
+      var t = s.querySelector('h2,h3'); var id = s.id;
+      if (!t || vistos[id] || /^(inicio|top)$/i.test(id)) return;
+      var tx = texto(t); if (tx.length > 34) tx = tx.slice(0, 32).replace(/\s\S*$/, '') + '…';
+      vistos[id] = 1; items.push({ t: tx, h: '#' + id });
+    });
+    items = items.slice(0, 7);
+  }
+  var wa = [].slice.call(document.querySelectorAll('a[href*="wa.me/"],a[href*="api.whatsapp.com"]')).filter(function (a) { return !propio.test(a.href); })[0];
+  var ig = [].slice.call(document.querySelectorAll('a[href*="instagram.com/"]')).filter(function (a) { return !propio.test(a.href); })[0];
+  if (items.length < 2 && !wa) return;
+
+  var color = getComputedStyle(header).color, bg = fondo(header);
+  var waBtn = document.querySelector('.btn-wa,.wa,.bt.wa');
+  var acento = waBtn && !propio.test(waBtn.href || '') ? getComputedStyle(waBtn).backgroundColor : '#1f7a46';
+  if (!acento || /rgba\(\d+, \d+, \d+, 0\)|transparent/.test(acento)) acento = '#1f7a46';
+  var acentoTxt = waBtn ? getComputedStyle(waBtn).color : '#fff';
+
+  var css = document.createElement('style');
+  css.textContent =
+    '.mm-btn{display:none;width:44px;height:44px;flex:none;margin-left:auto;padding:0;border:1px solid currentColor;border-radius:10px;background:transparent;color:inherit;cursor:pointer;place-content:center;gap:5px;opacity:.9;position:relative;z-index:61}' +
+    '.mm-btn svg{width:22px;height:22px;display:block;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}' +
+    '.mm-btn.mm-on{display:grid}' +
+    '.mm-panel{display:flex;flex-direction:column;padding:6px max(16px,env(safe-area-inset-left,0px)) 16px;border-top:1px solid rgba(127,127,127,.25);position:relative;z-index:60}' +
+    '.mm-panel[hidden]{display:none!important}' +
+    '.mm-panel a{display:block;margin:0;padding:14px 4px;line-height:1.3;letter-spacing:normal;text-transform:none;background:none;text-decoration:none;font-weight:600;font-size:1.05rem;color:inherit;border-bottom:1px solid rgba(127,127,127,.22)}' +
+    '.mm-panel a.mm-wa{margin-top:12px;border:0;border-radius:10px;text-align:center}' +
+    '.mm-flota.mm-btn{position:fixed;top:calc(12px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));margin:0;z-index:1001;border-color:rgba(255,255,255,.35);box-shadow:0 6px 18px rgba(0,0,0,.35)}' +
+    '.mm-flota.mm-panel{position:fixed;top:calc(64px + env(safe-area-inset-top,0px));left:12px;right:12px;z-index:1000;max-height:calc(100vh - 90px);overflow:auto;border:1px solid rgba(127,127,127,.3);border-radius:14px;box-shadow:0 18px 40px rgba(0,0,0,.35)}' +
+    '';
+  document.head.appendChild(css);
+
+  var fila = header.querySelector('.nav,.barra') || header.querySelector('.wrap,.w') || header;
+  // Si esa «fila» es muy alta (la portada entera), usar la fila donde está la marca/logo.
+  if (barra && fila.getBoundingClientRect().height > 170) fila = barra.querySelector('.wrap,.w,.fila') || barra;
+  var marca = header.querySelector('.marca,.logo,[class*="marca"]');
+  if (fila.getBoundingClientRect().height > 170 && marca && marca.parentElement && marca.parentElement.getBoundingClientRect().height < 130) fila = marca.parentElement;
+  if (fila.getBoundingClientRect().height > 170) {
+    // Barra superior dentro de una portada alta: el botón/enlace de arriba a la derecha marca la fila.
+    var ht = header.getBoundingClientRect().top;
+    var arriba = [].slice.call(header.querySelectorAll('a,button')).filter(function (e) {
+      var r = e.getBoundingClientRect(); return r.height > 0 && r.top - ht < 110 && r.right > window.innerWidth * 0.55;
+    })[0];
+    if (arriba && arriba.parentElement && arriba.parentElement.getBoundingClientRect().height < 130) fila = arriba.parentElement;
+  }
+  var btn = document.createElement('button');
+  btn.type = 'button'; btn.className = 'mm-btn'; btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-controls', 'mm-panel'); btn.setAttribute('aria-label', 'Abrir menú');
+  var ICO_ABRIR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+  var ICO_CERRAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>';
+  btn.innerHTML = ICO_ABRIR;
+  fila.appendChild(btn);
+
+  var panel = document.createElement('div');
+  panel.setAttribute('role', 'navigation');
+  panel.id = 'mm-panel'; panel.className = 'mm-panel'; panel.setAttribute('aria-label', 'Menú'); panel.hidden = true;
+  panel.style.background = bg; panel.style.color = color;
+  items.forEach(function (it) { var a = document.createElement('a'); a.href = it.h; a.textContent = it.t; panel.appendChild(a); });
+  if (ig) { var a2 = document.createElement('a'); a2.href = ig.href; a2.target = '_blank'; a2.rel = 'noopener'; a2.textContent = 'Instagram'; panel.appendChild(a2); }
+  if (wa) { var a3 = document.createElement('a'); a3.href = wa.href; a3.target = '_blank'; a3.rel = 'noopener'; a3.className = 'mm-wa'; a3.textContent = 'Escribir por WhatsApp'; a3.style.background = acento; a3.style.color = acentoTxt; panel.appendChild(a3); }
+  // Si la «cabecera» es en realidad la portada completa (muy alta), el botón flota arriba a la derecha.
+  var flota = header.getBoundingClientRect().height > 170 && fila.getBoundingClientRect().height > 170;
+  if (flota) {
+    btn.classList.add('mm-flota'); panel.classList.add('mm-flota');
+    btn.style.background = bg; btn.style.color = color;
+    document.body.appendChild(btn); document.body.appendChild(panel);
+  } else if (barra && barra.contains(fila)) {
+    // Barra fija aparte: el panel se abre fijo justo debajo de ella, sin taparla.
+    barra.style.zIndex = '1000';
+    panel.style.position = 'fixed'; panel.style.left = '0'; panel.style.right = '0'; panel.style.zIndex = '999';
+    panel.style.maxHeight = 'calc(100vh - 80px)'; panel.style.overflow = 'auto'; panel.style.boxShadow = '0 18px 40px rgba(0,0,0,.35)';
+    document.body.appendChild(panel);
+    btn.addEventListener('click', function () { panel.style.top = Math.round(barra.getBoundingClientRect().bottom) + 'px'; });
+  } else if (fila === header) header.appendChild(panel); else fila.parentNode.insertBefore(panel, fila.nextSibling);
+
+  function cerrar() { panel.hidden = true; btn.setAttribute('aria-expanded', 'false'); btn.setAttribute('aria-label', 'Abrir menú'); btn.innerHTML = ICO_ABRIR; }
+  btn.addEventListener('click', function () { var abrir = panel.hidden; panel.hidden = !abrir; btn.setAttribute('aria-expanded', String(abrir)); btn.setAttribute('aria-label', abrir ? 'Cerrar menú' : 'Abrir menú'); btn.innerHTML = abrir ? ICO_CERRAR : ICO_ABRIR; });
+  [].forEach.call(panel.querySelectorAll('a'), function (a) { a.addEventListener('click', cerrar); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) { cerrar(); btn.focus(); } });
+
+  function ajustar() {
+    var navVisible = navLinks.some(visible);
+    var on = !navVisible && window.innerWidth <= 900;
+    btn.classList.toggle('mm-on', on);
+    if (!on) cerrar();
+  }
+  ajustar();
+  window.addEventListener('resize', ajustar);
+})();
+</script>
 </body>
 </html>
